@@ -15,12 +15,14 @@ import { StartSprintDates } from "./startSprintDates/StartSprintDates.tsx";
 import { StartSprintEnvelopes } from "./startSprintsEnvelopes/StartSprintEnvelopes.tsx";
 import { SPRINTS_QUERY_KEY, createSprint } from "../../sprints.api.ts";
 import { AppLink } from "@/atoms";
+import { StartSum } from "./startSprintStartSum/StartSum";
 
 export const StartSprintPage = () => {
   const form = useForm<TCreateSprintDto>({
     resolver: zodResolver(CreateSprintDto),
     defaultValues: {
       startDate: new Date(dayjs().format("YYYY-MM-DD")),
+      startSum: 0,
     },
   });
 
@@ -75,6 +77,7 @@ export const StartSprintPage = () => {
         <form onSubmit={form.handleSubmit(submitHandler)}>
           <FormProvider {...form}>
             <StartSprintDates />
+            <StartSum />
             <StartSprintEnvelopes />
             <Box mt={5}>
               <Button fullWidth size="large" variant="contained" type="submit">

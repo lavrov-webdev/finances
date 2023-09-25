@@ -8,6 +8,7 @@ import {
 export const CreateSprintDto = z.object({
   startDate: z.date({ required_error: "Введите дату начала" }),
   endDate: z.date({ required_error: "Введите дату окончания" }),
+  startSum: z.number({ required_error: "Введите начальную сумму" }),
   envelopes: z.array(CreateEnvelopeDto),
 });
 export type TCreateSprintDto = z.infer<typeof CreateSprintDto>;
