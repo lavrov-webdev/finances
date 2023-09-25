@@ -25,7 +25,7 @@ import {
 } from '@nestjs/swagger';
 import {
   SprintResponseDto,
-  SprintResponseWithEnvelopesAndTransactionsDto,
+  SprintResponse__Envelopes_Transactions_CurrentBalanceDto,
   SprintResponseWithEnvelopesDto,
   SprintResponseWithTotalSpendingsAndPlainDto,
 } from './dto/sprint.response.dto';
@@ -57,12 +57,14 @@ export class SprintsController {
   }
 
   @Get(':id')
-  @ApiOkResponse({ type: SprintResponseWithEnvelopesAndTransactionsDto })
+  @ApiOkResponse({
+    type: SprintResponse__Envelopes_Transactions_CurrentBalanceDto,
+  })
   @ApiNotFoundResponse({ description: 'Sprint not found' })
   findOne(
     @Param('id') id: string,
     @Request() req: RequestWithUser,
-  ): Promise<SprintResponseWithEnvelopesAndTransactionsDto> {
+  ): Promise<SprintResponse__Envelopes_Transactions_CurrentBalanceDto> {
     return this.sprintsService.findOne(+id, req.user.id);
   }
 

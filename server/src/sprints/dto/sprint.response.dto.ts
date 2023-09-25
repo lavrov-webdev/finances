@@ -44,7 +44,7 @@ export class SprintResponseWithEnvelopesDto extends SprintResponseDto {
   envelopes: EnvelopeResponseDto[];
 }
 
-export class SprintResponseWithEnvelopesAndTransactionsDto extends SprintResponseDto {
+export class SprintResponse__Envelopes_Transactions_CurrentBalanceDto extends SprintResponseDto {
   @ApiProperty({
     example: [
       {
@@ -55,4 +55,7 @@ export class SprintResponseWithEnvelopesAndTransactionsDto extends SprintRespons
     type: EnvelopeWithTransactionsResponseDto,
   })
   envelopes: EnvelopeWithTransactionsResponseDto[];
+
+  @ApiProperty({ example: 2000 })
+  currentBalance: number;
 }

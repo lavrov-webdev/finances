@@ -68,7 +68,7 @@ export class SprintsService {
 
   async findOne(id: number, userId: number) {
     await this.checkIsUsersSprintOrThrow(id, userId);
-    return this.prisma.sprint.findUnique({
+    const findedSprint = await this.prisma.sprint.findUnique({
       where: { id },
       include: {
         envelopes: {
@@ -76,8 +76,18 @@ export class SprintsService {
             transactions: true,
           },
         },
+        transactions: true,
       },
     });
+    const { transactions: _, ...result } = findedSprint;
+    const totalSpendings = findedSprint.transactions.reduce(
+      (prev, curr) => curr.amount + prev,
+      0,
+    );
+    return {
+      ...result,
+      currentBalance: findedSprint.startSum - totalSpendings,
+    };
   }
 
   async update(id: number, updateSprintDto: UpdateSprintDto, userId: number) {
