@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  email        String        @unique
+  password     String
+  categories   Category[]
+  sprints      Sprint[]
+  envelopes    Envelope[]
+  transactions Transaction[]
+}
+
+model Category {
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  name         String
+  isActive     Boolean       @default(true)
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       Int
+  envelopes    Envelope[]
+  transactions Transaction[]
+
+  @@unique([name, userId])
+}
+
+model Sprint {
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  startDate    DateTime
+  endDate      DateTime
+  startSum     Int
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       Int
+  envelopes    Envelope[]
+  transactions Transaction[]
+}
+
+model Envelope {
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  amount       Int
+  category     Category      @relation(fields: [categoryId], references: [id])
+  categoryId   Int
+  sprint       Sprint        @relation(fields: [sprintId], references: [id], onDelete: Cascade)
+  sprintId     Int
+  transactions Transaction[]
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       Int
+}
+
+model Transaction {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  amount     Int
+  date       DateTime
+  comment    String?
+  envelope   Envelope @relation(fields: [envelopeId], references: [id], onDelete: Cascade)
+  envelopeId Int
+  sprint     Sprint   @relation(fields: [sprintId], references: [id], onDelete: Cascade)
+  sprintId   Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     Int
+}
