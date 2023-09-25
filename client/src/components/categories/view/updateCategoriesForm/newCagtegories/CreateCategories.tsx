@@ -11,7 +11,7 @@ export const CreateCategories = () => {
     name: "newCategories",
   });
   const addNewCategory = () => {
-    newCategories.append({ name: "", isWaste: true }, { shouldFocus: true });
+    newCategories.append({ name: "" }, { shouldFocus: true });
   };
   return (
     <Box>

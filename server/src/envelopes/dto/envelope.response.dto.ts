@@ -40,6 +40,6 @@ export class EnvelopeWithSptintDatesAndCategoryInfo extends EnvelopeResponseDto 
   })
   sprint: Pick<SprintResponseDto, 'startDate' | 'endDate'>;
 
-  @ApiProperty({ example: { name: 'current category name', isWaste: false } })
-  category: Pick<CategoryResponseDto, 'name' | 'isWaste'>;
+  @ApiProperty({ example: { name: 'current category name' } })
+  category: Pick<CategoryResponseDto, 'name'>;
 }

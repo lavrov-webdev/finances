@@ -2,7 +2,6 @@ import { z } from "zod";
 
 export const CreateCategoryDto = z.object({
   name: z.string().max(100).nonempty("Введите название категории"),
-  isWaste: z.boolean(),
 });
 export type TCreateCategoryDto = z.infer<typeof CreateCategoryDto>;
 
