@@ -12,6 +12,7 @@ import { useQuery } from "@tanstack/react-query";
 import { SPRINTS_QUERY_KEY, getSprintById } from "../../sprints.api";
 import { EnvelopeItem } from "./EnvelopeItem";
 import { TotalView } from "@/atoms";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 type TProps = {
   sprint: TGetSprintWithTotalSpendingsAndPlainDto;
@@ -43,6 +44,18 @@ export const SprintItem: FC<TProps> = ({ sprint }) => {
         </Typography>
       </AccordionSummary>
       <AccordionDetails>
+        <Grid2 container columnGap={4} mb={4}>
+          <Grid2>
+            <Typography variant="subtitle2">
+              Стартовый баланс: {getSprintInfo.data?.startSum}
+            </Typography>
+          </Grid2>
+          <Grid2>
+            <Typography variant="subtitle2">
+              Текущий баланс: {getSprintInfo.data?.currentBalance}
+            </Typography>
+          </Grid2>
+        </Grid2>
         {getSprintInfo.data?.envelopes.map((envelope) => (
           <EnvelopeItem key={envelope.id} envelope={envelope} />
         ))}

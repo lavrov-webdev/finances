@@ -44,7 +44,7 @@ export class SprintResponseWithEnvelopesDto extends SprintResponseDto {
   envelopes: EnvelopeResponseDto[];
 }
 
-export class SprintResponse__Envelopes_Transactions_CurrentBalanceDto extends SprintResponseDto {
+export class SprintResponseDetailedInfo extends SprintResponseDto {
   @ApiProperty({
     example: [
       {

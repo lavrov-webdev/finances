@@ -46,9 +46,11 @@ export type TGetSprintWithEnvelopesDto = z.infer<
   typeof GetSprintWithEnvelopesDto
 >;
 
-export const GetSprintWithEnvelopesAndTransactionsDto = GetSprintDto.extend({
-  envelopes: z.array(GetEnvelopeWithTransactionsDto),
-});
+export const SprintResponse__Envelopes_Transactions_CurrentBalanceDto =
+  GetSprintDto.extend({
+    envelopes: z.array(GetEnvelopeWithTransactionsDto),
+    currentBalance: z.number(),
+  });
 export type TGetSprintWithEnvelopesAndTransactionsDto = z.infer<
-  typeof GetSprintWithEnvelopesAndTransactionsDto
+  typeof SprintResponse__Envelopes_Transactions_CurrentBalanceDto
 >;
