@@ -25,10 +25,9 @@ export const GetSprintDto = CreateSprintDto.extend({
 }).omit({ envelopes: true });
 export type TGetSprintDto = z.infer<typeof GetSprintDto>;
 
-export const EditSprintDto = CreateSprintDto.extend({
-  startDate: z.string().datetime(),
-  endDate: z.string().datetime(),
-}).omit({ envelopes: true });
+export const EditSprintDto = CreateSprintDto.extend({}).omit({
+  envelopes: true,
+});
 export type TEditSprintDto = z.infer<typeof EditSprintDto>;
 
 export const GetSprintWithTotalSpendingsAndPlainDto = GetSprintDto.extend({

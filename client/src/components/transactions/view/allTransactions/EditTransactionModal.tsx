@@ -1,5 +1,4 @@
-import { DatePicker, TextInput } from "@/atoms";
-import { Box, Modal, Typography } from "@mui/material";
+import { DatePicker, Modal, TextInput } from "@/atoms";
 import { FormProvider, useForm } from "react-hook-form";
 import {
   TEditTransactionDto,
@@ -12,18 +11,6 @@ import dayjs from "dayjs";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { LoadingButton } from "@mui/lab";
-
-const style = {
-  position: "absolute" as const,
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
 
 export const EditTransactionModal = () => {
   const {
@@ -64,41 +51,40 @@ export const EditTransactionModal = () => {
     });
   };
   return (
-    <Modal open={isEditModalOpen} onClose={closeEditModal}>
-      <Box sx={style}>
-        <Box mb={4}>
-          <Typography variant="h6">Редактировать транзакцию</Typography>
-        </Box>
-        <form onSubmit={form.handleSubmit(handleSumbit)}>
-          <FormProvider {...form}>
-            <Grid2 container rowGap={3} columns={1}>
-              <Grid2 xs={1}>
-                <DatePicker
-                  defaultDate={dayjs(editableTransactionData?.date)}
-                  label="Дата"
-                  name="date"
-                />
-              </Grid2>
-              <Grid2 xs={1}>
-                <TextInput fullWidth label="Сумма" name="amount" />
-              </Grid2>
-              <Grid2 xs={1}>
-                <TextInput fullWidth label="Комментарий" name="comment" />
-              </Grid2>
-              <Grid2 xs={1}>
-                <LoadingButton
-                  loading={editTransactionMutate.isLoading}
-                  fullWidth
-                  type="submit"
-                  variant="contained"
-                >
-                  Редактировать
-                </LoadingButton>
-              </Grid2>
+    <Modal
+      isOpen={isEditModalOpen}
+      onClose={closeEditModal}
+      title="Редактировать транзакцию"
+    >
+      <form onSubmit={form.handleSubmit(handleSumbit)}>
+        <FormProvider {...form}>
+          <Grid2 container rowGap={3} columns={1}>
+            <Grid2 xs={1}>
+              <DatePicker
+                defaultDate={dayjs(editableTransactionData?.date)}
+                label="Дата"
+                name="date"
+              />
             </Grid2>
-          </FormProvider>
-        </form>
-      </Box>
+            <Grid2 xs={1}>
+              <TextInput fullWidth label="Сумма" name="amount" />
+            </Grid2>
+            <Grid2 xs={1}>
+              <TextInput fullWidth label="Комментарий" name="comment" />
+            </Grid2>
+            <Grid2 xs={1}>
+              <LoadingButton
+                loading={editTransactionMutate.isLoading}
+                fullWidth
+                type="submit"
+                variant="contained"
+              >
+                Редактировать
+              </LoadingButton>
+            </Grid2>
+          </Grid2>
+        </FormProvider>
+      </form>
     </Modal>
   );
 };

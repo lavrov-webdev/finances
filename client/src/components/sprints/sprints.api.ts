@@ -20,7 +20,13 @@ export const createSprint = async (
   return data;
 };
 
-export const editSprint = async (editSprintDto: TEditSprintDto, id: number) => {
+export const editSprint = async ({
+  editSprintDto,
+  id,
+}: {
+  editSprintDto: TEditSprintDto;
+  id: number;
+}) => {
   const { data } = await appAxios.patch<TGetSprintDto>(
     `/sprints/${id}`,
     editSprintDto

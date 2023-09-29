@@ -13,6 +13,8 @@ import { SPRINTS_QUERY_KEY, getSprintById } from "../../sprints.api";
 import { EnvelopeItem } from "./EnvelopeItem";
 import { TotalView } from "@/atoms";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import { EditSprintModal } from "./EditSrpitnModal";
+import { getSprintToEdit } from "../../sprints.helpers";
 
 type TProps = {
   sprint: TGetSprintWithTotalSpendingsAndPlainDto;
@@ -45,15 +47,21 @@ export const SprintItem: FC<TProps> = ({ sprint }) => {
       </AccordionSummary>
       <AccordionDetails>
         <Grid2 container columnGap={4} mb={4}>
-          <Grid2>
+          <Grid2 alignContent="center" container>
             <Typography variant="subtitle2">
               Стартовый баланс: {getSprintInfo.data?.startSum}
             </Typography>
           </Grid2>
-          <Grid2>
+          <Grid2 alignContent="center" container>
             <Typography variant="subtitle2">
               Текущий баланс: {getSprintInfo.data?.currentBalance}
             </Typography>
+          </Grid2>
+          <Grid2>
+            <EditSprintModal
+              sprint={getSprintToEdit(sprint)}
+              sprintId={sprint.id}
+            />
           </Grid2>
         </Grid2>
         {getSprintInfo.data?.envelopes.map((envelope) => (
