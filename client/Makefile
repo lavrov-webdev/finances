@@ -1,7 +1,7 @@
 # Переменные
-IMAGE_NAME := finances_server
-CONTAINER_NAME := finances_server_container
-PORT := 3000
+IMAGE_NAME := finances_client
+CONTAINER_NAME := finances_client_container
+PORT := 5173
 
 # Построение образа
 build:

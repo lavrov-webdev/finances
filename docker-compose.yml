@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  server:
+    build: server/
+    ports:
+      - 3000:3000
+    command: node ./dist/main.js
+
+  client:
+    build: client/
+    command: node ./server.cjs
+    ports:
+      - 5173:5173
+    depends_on:
+      - server
