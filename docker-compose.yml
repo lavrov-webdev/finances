@@ -6,6 +6,8 @@ services:
     ports:
       - 3000:3000
     command: node ./dist/main.js
+    environment:
+      - DATABASE_URL=file:./dev.db
 
   client:
     build: client/
