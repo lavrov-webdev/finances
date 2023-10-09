@@ -7,8 +7,7 @@ import { useAuthStore } from "../auth.store.ts";
 import { FC } from "react";
 import { AxiosError, HttpStatusCode } from "axios";
 import { toast } from "react-toastify";
-import { DevTool } from "@hookform/devtools";
-import { PasswordInput, TextInput } from "@/atoms";
+import { FormDevTool, PasswordInput, TextInput } from "@/atoms";
 
 type TProps = {
   action: "signup" | "signin";
@@ -55,7 +54,7 @@ export const AuthForm: FC<TProps> = ({ action, buttonText }) => {
             {buttonText}
           </LoadingButton>
         </Stack>
-        <DevTool control={form.control} />
+        <FormDevTool />
       </FormProvider>
     </form>
   );

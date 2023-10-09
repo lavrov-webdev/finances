@@ -5,7 +5,6 @@ import {
   TCreateTransactionDto,
 } from "../../transactions.types";
 import { Box } from "@mui/material";
-import { DevTool } from "@hookform/devtools";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import {
   CreateTransactionDate,
@@ -20,6 +19,7 @@ import {
 } from "../../transactions.api";
 import { LoadingButton } from "@mui/lab";
 import { toast } from "react-toastify";
+import { FormDevTool } from "@/atoms";
 
 export const CreateTransactionPage = () => {
   const form = useForm<TCreateTransactionDto>({
@@ -66,7 +66,7 @@ export const CreateTransactionPage = () => {
               Добавить расход
             </LoadingButton>
           </Box>
-          <DevTool control={form.control} />
+          <FormDevTool />
         </FormProvider>
       </form>
     </Box>

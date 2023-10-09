@@ -2,7 +2,6 @@ import {
   CATEGORIES_QUERY_KEY,
   getAllCategories,
 } from "@/components/categories/categories.api.ts";
-import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Alert, Box, Button } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -14,7 +13,7 @@ import { CreateSprintDto, TCreateSprintDto } from "../../sprints.types.ts";
 import { StartSprintDates } from "./startSprintDates/StartSprintDates.tsx";
 import { StartSprintEnvelopes } from "./startSprintsEnvelopes/StartSprintEnvelopes.tsx";
 import { SPRINTS_QUERY_KEY, createSprint } from "../../sprints.api.ts";
-import { AppLink } from "@/atoms";
+import { AppLink, FormDevTool } from "@/atoms";
 import { StartSum } from "./startSprintStartSum/StartSum";
 
 export const StartSprintPage = () => {
@@ -84,7 +83,7 @@ export const StartSprintPage = () => {
                 Начать спринт
               </Button>
             </Box>
-            <DevTool control={form.control} />
+            <FormDevTool />
           </FormProvider>
         </form>
       )}

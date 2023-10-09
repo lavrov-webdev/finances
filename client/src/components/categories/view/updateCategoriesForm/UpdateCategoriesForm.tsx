@@ -15,8 +15,8 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { Box } from "@mui/material";
-import { DevTool } from "@hookform/devtools";
 import { toast } from "react-toastify";
+import { FormDevTool } from "@/atoms";
 
 export const UpdateCategoriesForm = () => {
   const queryClient = useQueryClient();
@@ -66,7 +66,7 @@ export const UpdateCategoriesForm = () => {
             Обновить категории
           </LoadingButton>
         </Box>
-        <DevTool control={form.control} />
+        <FormDevTool />
       </FormProvider>
     </form>
   );

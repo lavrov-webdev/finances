@@ -8,9 +8,7 @@ COPY package.json ./
 COPY pnpm-lock.yaml ./
 COPY server.cjs ./
 
-RUN npm install -g pnpm
-
-RUN pnpm i
+RUN npm install -g pnpm && pnpm i
 
 COPY . .
 

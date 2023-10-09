@@ -7,3 +7,4 @@ export * from "./totalView/TotalView";
 export * from "./appLink/AppLink";
 export * from "./checkbox/Checkbox";
 export * from ".//modal/Modal";
+export * from "./formDevTool/FormDevTool";
