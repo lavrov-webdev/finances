@@ -1,5 +1,5 @@
-import axios from 'axios'
+import axios from "axios";
 export const appAxios = axios.create({
-    baseURL: "http://localhost:3000",
-    withCredentials: true
-})
+  baseURL: "https://finances.lavrov.space/api",
+  withCredentials: true,
+});

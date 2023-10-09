@@ -7,7 +7,9 @@ services:
       - 3000:3000
     command: node ./dist/main.js
     environment:
-      - DATABASE_URL=file:./dev.db
+      - DATABASE_URL
+      - JWT_SECRET
+
 
   client:
     build: client/
