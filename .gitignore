@@ -1,6 +1,8 @@
 /.idea
 /*/node_modules
 /server/dist
+/server/prisma/dev.db
+/server/prisma/dev.db-journal
 /server/.env
 */.DS_Store
 .DS_Store
