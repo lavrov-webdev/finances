@@ -11,6 +11,6 @@ RUN yarn
 
 COPY . .
 
-RUN yarn prisma generate && yarn build
+RUN yarn prisma migrate dev && yarn build
 
 CMD [ "node", "dist/main.js" ]
