@@ -1,10 +1,10 @@
-import { FormSubtitle, TextInput } from "@/atoms";
+import { AmountInput, FormSubtitle } from "@/atoms";
 import {
   getAllCategories,
   CATEGORIES_QUERY_KEY,
 } from "@/components/categories";
 import { TCreateSprintDto } from "@/components/sprints/sprints.types";
-import { Box, Grid, InputAdornment } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { useFieldArray, useFormContext } from "react-hook-form";
 
@@ -25,7 +25,7 @@ export const StartSprintEnvelopes = () => {
       <Grid container columns={1} rowSpacing={2}>
         {envelopesFields.fields.map((envelope, id) => (
           <Grid item xs={1} key={envelope.idRhf}>
-            <TextInput
+            <AmountInput
               fullWidth
               name={`envelopes.${id}.amount`}
               label={
@@ -33,12 +33,6 @@ export const StartSprintEnvelopes = () => {
                   (categoory) => categoory.id === envelope.categoryId
                 )?.name
               }
-              type="number"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="start">₽</InputAdornment>
-                ),
-              }}
               error={form.formState.errors.envelopes?.[id]?.amount?.message}
             />
           </Grid>

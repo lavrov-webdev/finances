@@ -1,4 +1,4 @@
-import { DatePicker, Modal, TextInput } from "@/atoms";
+import { AmountInput, DatePicker, Modal, TextInput } from "@/atoms";
 import { FormProvider, useForm } from "react-hook-form";
 import {
   TEditTransactionDto,
@@ -67,7 +67,7 @@ export const EditTransactionModal = () => {
               />
             </Grid2>
             <Grid2 xs={1}>
-              <TextInput fullWidth label="Сумма" name="amount" />
+              <AmountInput fullWidth label="Сумма" name="amount" />
             </Grid2>
             <Grid2 xs={1}>
               <TextInput fullWidth label="Комментарий" name="comment" />

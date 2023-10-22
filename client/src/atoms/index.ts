@@ -8,3 +8,4 @@ export * from "./appLink/AppLink";
 export * from "./checkbox/Checkbox";
 export * from ".//modal/Modal";
 export * from "./formDevTool/FormDevTool";
+export * from "./amountInput/AmountInput";

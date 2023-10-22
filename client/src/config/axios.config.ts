@@ -1,5 +1,5 @@
 import axios from "axios";
 export const appAxios = axios.create({
-  baseURL: "https://finances.lavrov.space/api",
+  baseURL: import.meta.env.DEV ? "http://localhost:3000" : "https://finances.lavrov.space/api",
   withCredentials: true,
 });

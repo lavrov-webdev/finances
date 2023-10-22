@@ -3,7 +3,7 @@ import { useSrpintsStore } from "../../sprints.store";
 import { Edit } from "@mui/icons-material";
 import { TEditSprintDto } from "../../sprints.types";
 import { FC } from "react";
-import { DatePicker, Modal, TextInput } from "@/atoms";
+import { AmountInput, DatePicker, Modal } from "@/atoms";
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { SPRINTS_QUERY_KEY, editSprint } from "../../sprints.api";
 import { FormProvider, useForm } from "react-hook-form";
@@ -55,9 +55,8 @@ export const EditSprintModal: FC<TProps> = ({ sprint, sprintId }) => {
           <FormProvider {...form}>
             <Grid2 rowGap={3} container mt={4} columns={1}>
               <Grid2 xs={1}>
-                <TextInput
+                <AmountInput
                   name="startSum"
-                  type="number"
                   label="Стартовая сумма"
                   fullWidth
                 />

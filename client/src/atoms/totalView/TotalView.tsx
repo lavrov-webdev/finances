@@ -1,3 +1,4 @@
+import { separateThousand } from "@/helpres";
 import { FC } from "react";
 
 type TProps = {
@@ -7,9 +8,9 @@ type TProps = {
 export const TotalView: FC<TProps> = ({ plan, fact }) => {
   return (
     <>
-      <b>РП:</b> {plan}
-      <b style={{ marginLeft: 8 }}>РФ:</b> {fact}
-      <b style={{ marginLeft: 8 }}>ОП:</b> {plan - fact}
+      <b>РП:</b> {separateThousand(plan)}
+      <b style={{ marginLeft: 8 }}>РФ:</b> {separateThousand(fact)}
+      <b style={{ marginLeft: 8 }}>ОП:</b> {separateThousand(plan - fact)}
     </>
   );
 };

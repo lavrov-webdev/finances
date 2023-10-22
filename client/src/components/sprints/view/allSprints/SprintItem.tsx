@@ -15,6 +15,7 @@ import { TotalView } from "@/atoms";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { EditSprintModal } from "./EditSrpitnModal";
 import { getSprintToEdit } from "../../sprints.helpers";
+import { separateThousand } from "@/helpres";
 
 type TProps = {
   sprint: TGetSprintWithTotalSpendingsAndPlainDto;
@@ -49,12 +50,12 @@ export const SprintItem: FC<TProps> = ({ sprint }) => {
         <Grid2 container columnGap={4} mb={4}>
           <Grid2 alignContent="center" container>
             <Typography variant="subtitle2">
-              Стартовый баланс: {getSprintInfo.data?.startSum}
+              Стартовый баланс: {separateThousand(getSprintInfo.data?.startSum || 0)}
             </Typography>
           </Grid2>
           <Grid2 alignContent="center" container>
             <Typography variant="subtitle2">
-              Текущий баланс: {getSprintInfo.data?.currentBalance}
+              Текущий баланс: {separateThousand(getSprintInfo.data?.currentBalance || 0)}
             </Typography>
           </Grid2>
           <Grid2>
