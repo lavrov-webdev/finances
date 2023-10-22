@@ -33,8 +33,8 @@ export const CreateTransactionPage = () => {
       await queryClient.invalidateQueries([TRANSACTIONS_QUERY_KEY]);
       form.setValue("amount", 0);
       form.setValue("comment", "");
-      form.resetField("amount");
-      form.setFocus("amount");
+      const amountInput = document.querySelector('input[name="amount"]') as HTMLInputElement
+      amountInput.focus()
       toast("Создана новая транзакция", {
         type: "success",
       });

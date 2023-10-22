@@ -34,7 +34,7 @@ export const AmountInput: FC<Props> = ({ name, error, ...rest }) => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="start">₽</InputAdornment>
-                ),
+                )
               }}
             />
             {fieldError && (
