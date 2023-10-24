@@ -75,6 +75,11 @@ export class SprintsService {
           include: {
             transactions: true,
           },
+          orderBy: {
+            category: {
+              name: "desc"
+            }
+          }
         },
         transactions: true,
       },
