@@ -40,9 +40,13 @@ export const SprintItem: FC<TProps> = ({ sprint }) => {
           <Grid2 xs={1}>
             <Typography variant="subtitle1">
               <b>
-                {dayjs(sprint.startDate).format("YYYY-MM-DD")} -{" "}
-                {dayjs(sprint.endDate).format("YYYY-MM-DD")}
-              </b>
+                Дата старта:
+              </b>{"  "}
+              {dayjs(sprint.startDate).format("YYYY-MM-DD")}<br/>
+              <b>
+                Дата завершения:
+              </b>{" "}
+              {dayjs(sprint.endDate).format("YYYY-MM-DD")}
             </Typography>
           </Grid2>
           <Grid2 xs={1}>
