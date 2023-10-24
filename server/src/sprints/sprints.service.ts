@@ -77,7 +77,7 @@ export class SprintsService {
           },
           orderBy: {
             category: {
-              name: "desc"
+              name: "asc"
             }
           }
         },
