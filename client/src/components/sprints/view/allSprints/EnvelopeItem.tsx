@@ -2,9 +2,9 @@ import { TGetEnvelopeWithTransactionsDto } from "@/components/envelopes";
 import { ExpandMore } from "@mui/icons-material";
 import {
   Accordion,
-  AccordionSummary,
-  Typography,
   AccordionDetails,
+  AccordionSummary,
+  Box,
   Paper,
   Table,
   TableBody,
@@ -12,15 +12,17 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Typography,
 } from "@mui/material";
 import { FC } from "react";
 import { EnvelopeTransaction } from "./EnvelopeTransaction";
 import { TotalView } from "@/atoms";
 import {
-  getAllCategories,
   CATEGORIES_QUERY_KEY,
+  getAllCategories,
 } from "@/components/categories";
 import { useQuery } from "@tanstack/react-query";
+import Grid2 from "@mui/material/Unstable_Grid2";
 
 type TProps = {
   envelope: TGetEnvelopeWithTransactionsDto;
@@ -33,7 +35,7 @@ export const EnvelopeItem: FC<TProps> = ({ envelope }) => {
   });
   const totalSpendings = envelope.transactions.reduce(
     (acc, curr) => acc + curr.amount,
-    0
+    0,
   );
   return (
     <Accordion>
@@ -43,18 +45,26 @@ export const EnvelopeItem: FC<TProps> = ({ envelope }) => {
         id={envelope.id.toString()}
         href={`#envelope.${envelope.id}`}
       >
-        <Typography variant="subtitle1">
-          <b>
-            {
-              categoriesQuery.data?.find(
-                (category) => category.id === envelope.categoryId
-              )?.name
-            }
-          </b>
-        </Typography>
-        <Typography ml={5} variant="subtitle1">
-          <TotalView plan={envelope.amount} fact={totalSpendings} />
-        </Typography>
+        <Box width="100%">
+          <Grid2 container columns={5}>
+            <Grid2 xs={1}>
+              <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
+                <Typography variant="subtitle1">
+                  <b>
+                    {categoriesQuery.data?.find(
+                      (category) => category.id === envelope.categoryId,
+                    )?.name}
+                  </b>
+                </Typography>
+              </div>
+            </Grid2>
+            <Grid2 xs={4}>
+              <Typography ml={5} variant="subtitle1">
+                <TotalView plan={envelope.amount} fact={totalSpendings} direction="row" />
+              </Typography>
+            </Grid2>
+          </Grid2>
+        </Box>
       </AccordionSummary>
       <AccordionDetails>
         <TableContainer component={Paper}>

@@ -1,15 +1,15 @@
 import { ExpandMore } from "@mui/icons-material";
 import {
   Accordion,
+  AccordionDetails,
   AccordionSummary,
   Typography,
-  AccordionDetails,
 } from "@mui/material";
 import { FC, useState } from "react";
 import { TGetSprintWithTotalSpendingsAndPlainDto } from "../../sprints.types";
 import dayjs from "dayjs";
 import { useQuery } from "@tanstack/react-query";
-import { SPRINTS_QUERY_KEY, getSprintById } from "../../sprints.api";
+import { getSprintById, SPRINTS_QUERY_KEY } from "../../sprints.api";
 import { EnvelopeItem } from "./EnvelopeItem";
 import { TotalView } from "@/atoms";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
@@ -36,26 +36,38 @@ export const SprintItem: FC<TProps> = ({ sprint }) => {
         id={sprint.id.toString()}
         href={`sprint.${sprint.id}`}
       >
-        <Typography variant="subtitle1">
-          <b>
-            {dayjs(sprint.startDate).format("YYYY-MM-DD")} -{" "}
-            {dayjs(sprint.endDate).format("YYYY-MM-DD")}
-          </b>
-        </Typography>
-        <Typography ml={4} variant="subtitle1">
-          <TotalView plan={sprint.totalPlain} fact={sprint.totalSpendings} />
-        </Typography>
+        <Grid2 columns={1} gap={4} container>
+          <Grid2 xs={1}>
+            <Typography variant="subtitle1">
+              <b>
+                {dayjs(sprint.startDate).format("YYYY-MM-DD")} -{" "}
+                {dayjs(sprint.endDate).format("YYYY-MM-DD")}
+              </b>
+            </Typography>
+          </Grid2>
+          <Grid2 xs={1}>
+            <Typography variant="subtitle1">
+              <TotalView
+                plan={sprint.totalPlain}
+                fact={sprint.totalSpendings}
+                direction="column"
+              />
+            </Typography>
+          </Grid2>
+        </Grid2>
       </AccordionSummary>
       <AccordionDetails>
         <Grid2 container columnGap={4} mb={4}>
           <Grid2 alignContent="center" container>
             <Typography variant="subtitle2">
-              Стартовый баланс: {separateThousand(getSprintInfo.data?.startSum || 0)}
+              Стартовый баланс:{" "}
+              {separateThousand(getSprintInfo.data?.startSum || 0)}
             </Typography>
           </Grid2>
           <Grid2 alignContent="center" container>
             <Typography variant="subtitle2">
-              Текущий баланс: {separateThousand(getSprintInfo.data?.currentBalance || 0)}
+              Текущий баланс:{" "}
+              {separateThousand(getSprintInfo.data?.currentBalance || 0)}
             </Typography>
           </Grid2>
           <Grid2>
