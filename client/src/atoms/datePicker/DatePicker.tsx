@@ -35,8 +35,13 @@ export const DatePicker: FC<TProps> = ({
               timezone="UTC"
               slotProps={{ textField: { fullWidth: true } }}
               defaultValue={defaultDate}
-              onChange={(event: Dayjs | null) => {
-                onChange(event ? event.toDate() : "");
+              onChange={(date: Dayjs | null) => {
+                if (!date) {
+                  onChange("");
+                } else {
+                  date = date.startOf("day");
+                  onChange(date.toDate());
+                }
               }}
             />
           </>
