@@ -7,7 +7,6 @@ services:
       - 3000:3000
     command: node ./dist/main.js
     environment:
-      - DATABASE_URL=${DATABASE_URL}
       - JWT_SECRET=${JWT_SECRET}
 
 
