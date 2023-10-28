@@ -6,7 +6,8 @@ services:
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
     command: node ./dist/main.js
-    env_file: .env
+    env_file:
+      - .env
 
   client:
     build: client/
@@ -15,4 +16,5 @@ services:
       - ${CLIENT_PORT}:${CLIENT_PORT}
     depends_on:
       - server
-    env_file: .env
+    env_file:
+      - .env
