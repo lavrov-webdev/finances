@@ -4,16 +4,15 @@ services:
   server:
     build: server/
     ports:
-      - 3000:3000
+      - ${SERVER_PORT}:${SERVER_PORT}
     command: node ./dist/main.js
-    environment:
-      - JWT_SECRET=${JWT_SECRET}
-
+    env_file: .env
 
   client:
     build: client/
     command: node ./server.cjs
     ports:
-      - 5173:5173
+      - ${CLIENT_PORT}:${CLIENT_PORT}
     depends_on:
       - server
+    env_file: .env
