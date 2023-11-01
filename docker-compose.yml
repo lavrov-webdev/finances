@@ -2,19 +2,19 @@ version: '3'
 
 services:
   server:
-    build: server/
+    build: .
     ports:
-      - ${SERVER_PORT}:${SERVER_PORT}
+      - 3001:3001
     command: node ./dist/main.js
     env_file:
-      - .env
+      - ./server/.env
 
   client:
     build: client/
     command: node ./server.cjs
     ports:
-      - ${CLIENT_PORT}:${CLIENT_PORT}
+      - 3000:3000
     depends_on:
       - server
     env_file:
-      - .env
+      - ./server/.env
