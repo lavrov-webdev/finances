@@ -3,6 +3,6 @@
 /server/dist
 /server/prisma/dev.db
 /server/prisma/dev.db-journal
-/server/.env
+.env
 */.DS_Store
 .DS_Store
