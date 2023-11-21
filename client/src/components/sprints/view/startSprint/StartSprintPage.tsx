@@ -3,7 +3,7 @@ import {
   getAllCategories,
 } from "@/components/categories/categories.api.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Alert, Box, Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import dayjs from "dayjs";
 import { toast } from "react-toastify";
@@ -12,9 +12,11 @@ import { FormProvider, useForm } from "react-hook-form";
 import { CreateSprintDto, TCreateSprintDto } from "../../sprints.types.ts";
 import { StartSprintDates } from "./startSprintDates/StartSprintDates.tsx";
 import { StartSprintEnvelopes } from "./startSprintsEnvelopes/StartSprintEnvelopes.tsx";
-import { SPRINTS_QUERY_KEY, createSprint } from "../../sprints.api.ts";
-import { AppLink, FormDevTool } from "@/atoms";
+import { createSprint, SPRINTS_QUERY_KEY } from "../../sprints.api.ts";
+import { FormDevTool } from "@/atoms";
 import { StartSum } from "./startSprintStartSum/StartSum";
+import { StartSprintPreview } from "./startSprintPreview/StartSprintPreview.tsx";
+import { StartSprintEmptyCategoriesAlert } from "./startSprintEmptyCategoriesAlert/StartSprintEmptyCategoriesAlert.tsx";
 
 export const StartSprintPage = () => {
   const form = useForm<TCreateSprintDto>({
@@ -41,7 +43,7 @@ export const StartSprintPage = () => {
         }
         return acc;
       }, [] as TCreateSprintDto["envelopes"]) || [],
-    [categoriesQuery.data]
+    [categoriesQuery.data],
   );
   const queryClient = useQueryClient();
   const createSprintMutation = useMutation({
@@ -64,29 +66,39 @@ export const StartSprintPage = () => {
   if (!categoriesQuery.data) return null;
 
   return (
-    <Box maxWidth={600}>
-      {categoriesQuery.data.length === 0 ? (
-        <Alert severity="warning">
-          Вы пока не создали ни одной категории. <br />
-          Без них не получится начать новый спринт. <br />
-          Создайте несколько на странице{" "}
-          <AppLink to="/categories">обновления категорий</AppLink>
-        </Alert>
-      ) : (
-        <form onSubmit={form.handleSubmit(submitHandler)}>
-          <FormProvider {...form}>
-            <StartSprintDates />
-            <StartSum />
-            <StartSprintEnvelopes />
-            <Box mt={5}>
-              <Button fullWidth size="large" variant="contained" type="submit">
-                Начать спринт
-              </Button>
+    <FormProvider {...form}>
+      {categoriesQuery.data.length === 0
+        ? <StartSprintEmptyCategoriesAlert />
+        : (
+          <Box
+            maxWidth={900}
+            style={{
+              display: "grid",
+              gap: "20px",
+              gridTemplateColumns: "1fr 1fr",
+            }}
+          >
+            <Box maxWidth={600}>
+              <form onSubmit={form.handleSubmit(submitHandler)}>
+                <StartSprintDates />
+                <StartSum />
+                <StartSprintEnvelopes />
+                <Box mt={5}>
+                  <Button
+                    fullWidth
+                    size="large"
+                    variant="contained"
+                    type="submit"
+                  >
+                    Начать спринт
+                  </Button>
+                </Box>
+                <FormDevTool />
+              </form>
             </Box>
-            <FormDevTool />
-          </FormProvider>
-        </form>
-      )}
-    </Box>
+            <StartSprintPreview />
+          </Box>
+        )}
+    </FormProvider>
   );
 };
