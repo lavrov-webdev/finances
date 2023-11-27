@@ -1,12 +1,18 @@
 import { FC, PropsWithChildren } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { ToastContainer } from "react-toastify";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: import.meta.env.DEV ? 0 : 1000 * 60 * 5,
+    },
+  },
+});
 
 const themeOptions = createTheme({
   palette: {
