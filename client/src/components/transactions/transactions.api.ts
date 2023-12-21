@@ -20,6 +20,11 @@ export const getTransactions = async () => {
   return data;
 };
 
+export const getSprintTransactions = async (sprintId: number) => {
+  const {data} = await appAxios.get<TGetTransactionsWithCategoryName[]>(`/transactions/${sprintId}`)
+  return data
+}
+
 export const editTransaction = async ({
   editTransaction,
   id,

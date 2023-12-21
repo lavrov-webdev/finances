@@ -35,7 +35,7 @@ export class TransactionResponseDto {
   userId: number;
 }
 
-export class TransactinsWithCategoryName extends TransactionResponseDto {
+export class TransactionWithCategoryName extends TransactionResponseDto {
   @ApiProperty({ example: { name: 'current category name' } })
   category: Pick<CategoryResponseDto, 'name'>;
 }

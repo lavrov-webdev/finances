@@ -20,7 +20,6 @@ function App() {
   ) : (
     <Providers>
       <RootRouter />
-      <div></div>
     </Providers>
   );
 }

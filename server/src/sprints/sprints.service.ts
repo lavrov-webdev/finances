@@ -1,12 +1,8 @@
-import {
-  Injectable,
-  InternalServerErrorException,
-  NotFoundException,
-} from '@nestjs/common';
-import { CreateSprintDto } from './dto/create-sprint.dto';
-import { UpdateSprintDto } from './dto/update-sprint.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
-import { EnvelopesService } from 'src/envelopes/envelopes.service';
+import { Injectable, NotFoundException } from "@nestjs/common";
+import { CreateSprintDto } from "./dto/create-sprint.dto";
+import { UpdateSprintDto } from "./dto/update-sprint.dto";
+import { PrismaService } from "src/prisma/prisma.service";
+import { EnvelopesService } from "src/envelopes/envelopes.service";
 
 @Injectable()
 export class SprintsService {
@@ -32,7 +28,7 @@ export class SprintsService {
       this.prisma.sprint.findUnique({
         where: { id },
         include: { envelopes: true },
-      }),
+      })
     );
   }
 
@@ -77,9 +73,9 @@ export class SprintsService {
           },
           orderBy: {
             category: {
-              name: "asc"
-            }
-          }
+              name: "asc",
+            },
+          },
         },
         transactions: true,
       },
@@ -109,8 +105,9 @@ export class SprintsService {
     const sprint = await this.prisma.sprint.findUnique({
       where: { id: sprintId },
     });
-    if (!sprint || sprint.userId !== userId)
-      throw new NotFoundException('Sprint not found');
+    if (!sprint || sprint.userId !== userId) {
+      throw new NotFoundException("Sprint not found");
+    }
     return sprint;
   }
 }

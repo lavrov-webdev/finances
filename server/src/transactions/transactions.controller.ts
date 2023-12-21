@@ -26,7 +26,7 @@ import {
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 import {
-  TransactinsWithCategoryName,
+  TransactionWithCategoryName,
   TransactionResponseDto,
 } from './dto/transaction.response.dto';
 
@@ -50,10 +50,10 @@ export class TransactionsController {
   }
 
   @Get()
-  @ApiOkResponse({ type: [TransactinsWithCategoryName] })
+  @ApiOkResponse({ type: [TransactionWithCategoryName] })
   findAll(
     @Request() req: RequestWithUser,
-  ): Promise<TransactinsWithCategoryName[]> {
+  ): Promise<TransactionWithCategoryName[]> {
     return this.transactionsService.findAll(req.user.id);
   }
 
@@ -65,6 +65,16 @@ export class TransactionsController {
     @Request() req: RequestWithUser,
   ): Promise<TransactionResponseDto> {
     return this.transactionsService.findOne(+id, req.user.id);
+  }
+
+  @Get("bysprint/:sprintId")
+  @ApiOkResponse({type: [TransactionWithCategoryName]})
+  @ApiNotFoundResponse({description: "Transactions for that sprintId and userId not found"})
+  findBySprint(
+    @Param('sprintId') sprintId: string,
+    @Request() req: RequestWithUser,
+  ): Promise<TransactionWithCategoryName[]> {
+    return this.transactionsService.findBySprint(+sprintId, req.user.id)
   }
 
   @Patch(':id')
