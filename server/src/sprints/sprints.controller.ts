@@ -22,6 +22,7 @@ import {
   ApiOkResponse,
   ApiTags,
   ApiUnauthorizedResponse,
+  PickType,
 } from '@nestjs/swagger';
 import {
   SprintResponseDto,
@@ -54,6 +55,17 @@ export class SprintsController {
     @Request() req: RequestWithUser,
   ): Promise<SprintResponseWithTotalSpendingsAndPlainDto[]> {
     return this.sprintsService.findAll(req.user.id);
+  }
+
+  @Get('current')
+  @ApiOkResponse({
+    type: PickType<SprintResponseDto, "id">,
+  })
+  @ApiNotFoundResponse({ description: 'Sprint not found' })
+  findCurrent(
+    @Request() req: RequestWithUser,
+  ): Promise<Pick<SprintResponseDto, "id">> {
+    return this.sprintsService.findCurrent(req.user.id);
   }
 
   @Get(':id')

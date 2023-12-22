@@ -53,6 +53,14 @@ export const getSprintById = async (
   return data;
 };
 
+export const getCurrentSprint = async (): Promise<Pick<TGetSprintDto, 'id'>> => {
+  const { data } =
+    await appAxios.get<Pick<TGetSprintDto, 'id'>>(
+      `/sprints/current`
+    );
+  return data;
+};
+
 export const deleteSprint = async (id: number): Promise<TGetSprintDto> => {
   const { data } = await appAxios.delete<TGetSprintDto>(`/sprints/${id}`);
   return data;

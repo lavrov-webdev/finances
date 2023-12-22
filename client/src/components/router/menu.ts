@@ -15,6 +15,11 @@ type TMenuItem = {
 // import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet'; -- envelope
 export const menu: TMenuItem[] = [
   {
+    title: "Текущий спринт",
+    to: "/sprints/current",
+    Icon: Money
+  },
+  {
     title: "Все спринты",
     to: "/sprints",
     Icon: AutoStories,
@@ -28,11 +33,6 @@ export const menu: TMenuItem[] = [
     title: "Категории",
     to: "/categories",
     Icon: Article,
-  },
-  {
-    title: "Транзакции",
-    to: "/transactions",
-    Icon: Money,
   },
   {
     title: "Добавить транзакцию",

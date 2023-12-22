@@ -14,13 +14,13 @@ export const TotalView: FC<TProps> = ({ plan, fact, direction }) => {
     <Box width="100%">
       <Grid2 container columns={isHorizontal ? 1 : 3}>
         <Grid2 xs={1}>
-          <b>Расход плановый:</b> {separateThousand(plan)}
+          {separateThousand(plan)}
         </Grid2>
         <Grid2 xs={1}>
-          <b>Расход фактический:</b> {separateThousand(fact)}
+          {separateThousand(fact)}
         </Grid2>
         <Grid2 xs={1}>
-          <b>Осталось по плану:</b> {separateThousand(plan - fact)}
+          {separateThousand(plan - fact)}
         </Grid2>
       </Grid2>
     </Box>

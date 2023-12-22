@@ -15,7 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 import { FC } from "react";
-import { EnvelopeTransaction } from "./EnvelopeTransaction";
+import { EnvelopeTransaction } from "./Transaction";
 import { TotalView } from "@/atoms";
 import {
   CATEGORIES_QUERY_KEY,
@@ -28,7 +28,7 @@ type TProps = {
   envelope: TGetEnvelopeWithTransactionsDto;
 };
 
-export const EnvelopeItem: FC<TProps> = ({ envelope }) => {
+export const Envelope: FC<TProps> = ({ envelope }) => {
   const categoriesQuery = useQuery({
     queryFn: getAllCategories,
     queryKey: [CATEGORIES_QUERY_KEY],

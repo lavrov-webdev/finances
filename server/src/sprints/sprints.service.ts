@@ -9,7 +9,7 @@ export class SprintsService {
   constructor(
     private prisma: PrismaService,
     private envelopesService: EnvelopesService,
-  ) {}
+  ) { }
   async create(createSprintDto: CreateSprintDto, userId: number) {
     const { envelopes, ...createSprintData } = createSprintDto;
     const { id } = await this.prisma.sprint.create({
@@ -89,6 +89,24 @@ export class SprintsService {
       ...result,
       currentBalance: findedSprint.startSum - totalSpendings,
     };
+  }
+
+  async findCurrent(userId: number) {
+    const now = new Date(Date.now())
+    return this.prisma.sprint.findFirst({
+      where: {
+        AND: {
+          userId,
+          startDate: {
+            lte: now
+          },
+          endDate: {
+            gte: now
+          }
+        }
+      },
+      select: { id: true }
+    })
   }
 
   async update(id: number, updateSprintDto: UpdateSprintDto, userId: number) {
