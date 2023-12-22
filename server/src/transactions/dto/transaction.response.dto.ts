@@ -1,7 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Category } from '@prisma/client';
 import { CategoryResponseDto } from 'src/categories/dto/category.response.dto';
-import { EnvelopeResponseDto } from 'src/envelopes/dto/envelope.response.dto';
 
 export class TransactionResponseDto {
   @ApiProperty({ example: 1 })

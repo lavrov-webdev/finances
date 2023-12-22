@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsInt, IsString, Min } from 'class-validator';
+import { IsInt, Min } from 'class-validator';
 
 export class CreateEnvelopeDto {
   @ApiProperty({ example: 1 })

@@ -42,7 +42,10 @@ export class CategoriesService {
   }
 
   findAll(userId: number) {
-    return this.prisma.category.findMany({ where: { userId }, orderBy: {name: 'asc'} });
+    return this.prisma.category.findMany({
+      where: { userId },
+      orderBy: { name: 'asc' },
+    });
   }
 
   async findOne(id: number, userId: number) {

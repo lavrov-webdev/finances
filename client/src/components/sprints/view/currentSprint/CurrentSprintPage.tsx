@@ -15,7 +15,7 @@ export const CurrentSprintPage = () => {
             console.log({id: currentSprint.data.id})
             navigate(`/sprints/${currentSprint.data.id}`)
         }
-    }, [currentSprint.data?.id])
+    }, [currentSprint.data?.id, navigate])
     return (
         <div> CurrentSprint </div>
     )

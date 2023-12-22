@@ -67,14 +67,16 @@ export class TransactionsController {
     return this.transactionsService.findOne(+id, req.user.id);
   }
 
-  @Get("bysprint/:sprintId")
-  @ApiOkResponse({type: [TransactionWithCategoryName]})
-  @ApiNotFoundResponse({description: "Transactions for that sprintId and userId not found"})
+  @Get('bysprint/:sprintId')
+  @ApiOkResponse({ type: [TransactionWithCategoryName] })
+  @ApiNotFoundResponse({
+    description: 'Transactions for that sprintId and userId not found',
+  })
   findBySprint(
     @Param('sprintId') sprintId: string,
     @Request() req: RequestWithUser,
   ): Promise<TransactionWithCategoryName[]> {
-    return this.transactionsService.findBySprint(+sprintId, req.user.id)
+    return this.transactionsService.findBySprint(+sprintId, req.user.id);
   }
 
   @Patch(':id')

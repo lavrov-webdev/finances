@@ -7,7 +7,6 @@ import {
   IsString,
   MaxLength,
   Min,
-  MinLength,
 } from 'class-validator';
 
 export class CreateTransactionDto {

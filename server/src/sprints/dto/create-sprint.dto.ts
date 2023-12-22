@@ -3,11 +3,8 @@ import { CreateEnvelopeDto } from 'src/envelopes/dto/create-envelope.dto';
 import {
   ArrayMinSize,
   IsArray,
-  IsDateString,
-  IsISO8601,
   IsInt,
   Min,
-  MinLength,
   ValidateNested,
 } from 'class-validator';
 import { datePropertyTranformer } from 'src/transformers/date.transformer';

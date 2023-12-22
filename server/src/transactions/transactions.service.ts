@@ -9,7 +9,7 @@ export class TransactionsService {
   constructor(
     private prisma: PrismaService,
     private envelopesService: EnvelopesService,
-  ) { }
+  ) {}
   async create(createTransactionDto: CreateTransactionDto, userId: number) {
     const findedEnvelope = await this.envelopesService.getOne(
       createTransactionDto.envelopeId,
@@ -28,7 +28,7 @@ export class TransactionsService {
   findAll(userId: number) {
     return this.prisma.transaction.findMany({
       where: { userId },
-      orderBy: {date: "desc"},
+      orderBy: { date: 'desc' },
       include: {
         category: {
           select: {
@@ -46,11 +46,11 @@ export class TransactionsService {
       include: {
         category: {
           select: {
-            name: true
-          }
-        }
-      }
-    })
+            name: true,
+          },
+        },
+      },
+    });
   }
 
   findOne(id: number, userId: number) {

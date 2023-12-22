@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { TGetSprintWithTotalSpendingsAndPlainDto } from "../../sprints.types";
 import dayjs from "dayjs";
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 

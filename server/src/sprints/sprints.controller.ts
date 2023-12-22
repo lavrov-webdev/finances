@@ -59,12 +59,12 @@ export class SprintsController {
 
   @Get('current')
   @ApiOkResponse({
-    type: PickType<SprintResponseDto, "id">,
+    type: PickType<SprintResponseDto, 'id'>,
   })
   @ApiNotFoundResponse({ description: 'Sprint not found' })
   findCurrent(
     @Request() req: RequestWithUser,
-  ): Promise<Pick<SprintResponseDto, "id">> {
+  ): Promise<Pick<SprintResponseDto, 'id'>> {
     return this.sprintsService.findCurrent(req.user.id);
   }
 

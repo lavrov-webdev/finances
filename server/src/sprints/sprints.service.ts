@@ -1,15 +1,15 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
-import { CreateSprintDto } from "./dto/create-sprint.dto";
-import { UpdateSprintDto } from "./dto/update-sprint.dto";
-import { PrismaService } from "src/prisma/prisma.service";
-import { EnvelopesService } from "src/envelopes/envelopes.service";
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { CreateSprintDto } from './dto/create-sprint.dto';
+import { UpdateSprintDto } from './dto/update-sprint.dto';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { EnvelopesService } from 'src/envelopes/envelopes.service';
 
 @Injectable()
 export class SprintsService {
   constructor(
     private prisma: PrismaService,
     private envelopesService: EnvelopesService,
-  ) { }
+  ) {}
   async create(createSprintDto: CreateSprintDto, userId: number) {
     const { envelopes, ...createSprintData } = createSprintDto;
     const { id } = await this.prisma.sprint.create({
@@ -28,7 +28,7 @@ export class SprintsService {
       this.prisma.sprint.findUnique({
         where: { id },
         include: { envelopes: true },
-      })
+      }),
     );
   }
 
@@ -73,7 +73,7 @@ export class SprintsService {
           },
           orderBy: {
             category: {
-              name: "asc",
+              name: 'asc',
             },
           },
         },
@@ -92,21 +92,21 @@ export class SprintsService {
   }
 
   async findCurrent(userId: number) {
-    const now = new Date(Date.now())
+    const now = new Date(Date.now());
     return this.prisma.sprint.findFirst({
       where: {
         AND: {
           userId,
           startDate: {
-            lte: now
+            lte: now,
           },
           endDate: {
-            gte: now
-          }
-        }
+            gte: now,
+          },
+        },
       },
-      select: { id: true }
-    })
+      select: { id: true },
+    });
   }
 
   async update(id: number, updateSprintDto: UpdateSprintDto, userId: number) {
@@ -124,7 +124,7 @@ export class SprintsService {
       where: { id: sprintId },
     });
     if (!sprint || sprint.userId !== userId) {
-      throw new NotFoundException("Sprint not found");
+      throw new NotFoundException('Sprint not found');
     }
     return sprint;
   }
