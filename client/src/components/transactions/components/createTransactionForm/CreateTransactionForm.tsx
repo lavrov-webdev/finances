@@ -7,7 +7,7 @@ import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { useForm, FormProvider } from "react-hook-form";
 import { toast } from "react-toastify";
 import { TCreateTransactionDto, CreateTransactionDto, createTransaction, TRANSACTIONS_QUERY_KEY } from "../..";
-import { CreateTransactionDate, CreateTransactionAmount, CreateTransactionSelectEnvelope, CreateTransactionComment } from "./fields";
+import { Date, Amount, SelectEnvelope, Comment } from "./fields";
 import { SPRINTS_QUERY_KEY } from "@/components/sprints/sprints.api";
 
 export const CreateTransactionForm = () => {
@@ -39,10 +39,10 @@ export const CreateTransactionForm = () => {
         <form onSubmit={form.handleSubmit(handleSubmit)}>
             <FormProvider {...form}>
                 <Grid2 container spacing={2} columns={4}>
-                    <CreateTransactionDate />
-                    <CreateTransactionAmount />
-                    <CreateTransactionSelectEnvelope />
-                    <CreateTransactionComment />
+                    <Date />
+                    <Amount />
+                    <SelectEnvelope />
+                    <Comment />
                 </Grid2>
                 <Box mt={5}>
                     <LoadingButton

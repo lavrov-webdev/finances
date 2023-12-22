@@ -1,4 +1,4 @@
 export * from './auth.api.ts'
 export * from './auth.types.ts'
 export * from './auth.store.ts'
-export * from './view/AuthPage.tsx'
+export * from './pages/AuthPage.tsx'

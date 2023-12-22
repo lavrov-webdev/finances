@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { TEditSprintDto } from "./sprints.types";
+import { TEditSprintDto } from ".";
 
 type TSprintsStore = {
   editableSprint: TEditSprintDto | null;

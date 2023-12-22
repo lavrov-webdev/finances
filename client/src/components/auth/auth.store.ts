@@ -1,6 +1,5 @@
-import { TAuthDto } from "./auth.types.ts";
 import { create } from "zustand";
-import { getUserInformation, logout, signIn, signUp } from "./auth.api.ts";
+import { TAuthDto, signIn, signUp, getUserInformation, logout } from ".";
 
 type TAuthState = {
   signIn: (credentials: TAuthDto) => Promise<void>;

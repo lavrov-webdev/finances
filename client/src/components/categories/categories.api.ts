@@ -2,7 +2,7 @@ import {
   TCreateCategoryDto,
   TEditCategoryDto,
   TGetCategoryDto,
-} from "./categories.types.ts";
+} from ".";
 import { appAxios } from "@/config";
 
 export const CATEGORIES_QUERY_KEY = "categories";

@@ -1,4 +1,4 @@
-import { TEditSprintDto, TGetSprintDto } from "./sprints.types";
+import { TEditSprintDto, TGetSprintDto } from ".";
 
 export const getSprintToEdit = (sprint: TGetSprintDto): TEditSprintDto => ({
   startDate: sprint.startDate,

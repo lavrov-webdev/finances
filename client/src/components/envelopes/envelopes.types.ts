@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { GetTransactionDto } from "../transactions";
+import { GetTransactionDto } from "@/components/transactions";
 
 export const CreateEnvelopeDto = z.object({
   categoryId: z.number().min(0),

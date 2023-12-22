@@ -1,0 +1,10 @@
+import { TextInput } from "@/atoms";
+import Grid2 from "@mui/material/Unstable_Grid2";
+
+export const Comment = () => {
+  return (
+    <Grid2 xs={1}>
+      <TextInput isFloatinLabel fullWidth label="Комментарий" name="comment" />
+    </Grid2>
+  );
+};

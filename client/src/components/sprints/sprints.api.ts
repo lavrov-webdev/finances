@@ -1,12 +1,5 @@
-import {
-  TCreateSprintDto,
-  TEditSprintDto,
-  TGetSprintDto,
-  TGetSprintWithEnvelopesAndTransactionsDto,
-  TGetSprintWithEnvelopesDto,
-  TGetSprintWithTotalSpendingsAndPlainDto,
-} from "./sprints.types.ts";
 import { appAxios } from "@/config";
+import { TCreateSprintDto, TGetSprintWithEnvelopesDto, TEditSprintDto, TGetSprintDto, TGetSprintWithTotalSpendingsAndPlainDto, TGetSprintWithEnvelopesAndTransactionsDto } from ".";
 
 export const SPRINTS_QUERY_KEY = "sprints";
 

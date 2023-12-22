@@ -1,4 +1,5 @@
-import { TGetSprintWithEnvelopesAndTransactionsDto } from "./sprints.types"
+import { TGetSprintWithEnvelopesAndTransactionsDto } from "."
+
 
 const getPositiveEnvelopeRemainings = (sprint: TGetSprintWithEnvelopesAndTransactionsDto) => {
     return sprint.envelopes.reduce((prev, cur) => {

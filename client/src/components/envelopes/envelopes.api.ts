@@ -1,6 +1,6 @@
 import { appAxios } from "@/config";
 import dayjs from "dayjs";
-import { TGetEnvelopesWithCategoryNameAndSprintDates } from "./envelopes.types";
+import { TGetEnvelopesWithCategoryNameAndSprintDates } from "@/components/envelopes";
 
 export const getEnvelopesByDate = async (date: Date) => {
   const { data } = await appAxios.get<

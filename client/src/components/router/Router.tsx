@@ -3,18 +3,18 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import { BaseLayout } from "../baseLayout/index.ts";
-import { AuthPage } from "../auth/index.ts";
+import { BaseLayout } from "../baseLayout";
+import { AuthPage } from "../auth/pages";
 
 import { ProtectedRoute } from "./ProtectedRoute.tsx";
-import { CategoriesPage } from "../categories/index.ts";
+import { CategoriesPage } from "../categories/pages";
 
-import { SprintsPage, AllSprintsPage, StartSprintPage, SprintPage, CurrentSprintPage } from "../sprints/index.ts";
+import { SprintsPage, AllSprintsPage, SprintPage, CurrentSprintPage, StartSprintPage } from "../sprints/pages";
 import {
   AllTransactionsPage,
   CreateTransactionPage,
   TransactionsPage,
-} from "../transactions/index.ts";
+} from "../transactions/pages";
 
 const routes = createBrowserRouter([
   {
@@ -38,7 +38,7 @@ const routes = createBrowserRouter([
             element: <AllSprintsPage />,
           },
           {
-            element: <SprintPage/>,
+            element: <SprintPage />,
             path: ":id"
           },
           {
@@ -46,7 +46,7 @@ const routes = createBrowserRouter([
             path: "new",
           },
           {
-            element: <CurrentSprintPage/>,
+            element: <CurrentSprintPage />,
             path: "current"
           }
         ],
