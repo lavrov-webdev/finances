@@ -1,6 +1,6 @@
 import { Providers } from "./Providers.tsx";
-import { RootRouter } from "./components/router";
-import { useAuthStore } from "./components/auth";
+import { RootRouter } from "./modules/router/index.ts";
+import { useAuthStore } from "./modules/auth/index.ts";
 import { useEffect, useState } from "react";
 
 function App() {
