@@ -8,6 +8,7 @@ import { useForm, FormProvider } from "react-hook-form";
 import { toast } from "react-toastify";
 import { TCreateTransactionDto, CreateTransactionDto, createTransaction, TRANSACTIONS_QUERY_KEY } from "../..";
 import { CreateTransactionDate, CreateTransactionAmount, CreateTransactionSelectEnvelope, CreateTransactionComment } from "./fields";
+import { SPRINTS_QUERY_KEY } from "@/components/sprints/sprints.api";
 
 export const CreateTransactionForm = () => {
     const form = useForm<TCreateTransactionDto>({
@@ -18,7 +19,7 @@ export const CreateTransactionForm = () => {
     const createTransactionMutate = useMutation({
         mutationFn: createTransaction,
         onSuccess: async () => {
-            await queryClient.invalidateQueries([TRANSACTIONS_QUERY_KEY]);
+            await queryClient.invalidateQueries([TRANSACTIONS_QUERY_KEY, SPRINTS_QUERY_KEY]);
             form.setValue("amount", 0);
             form.setValue("comment", "");
             const amountInput = document.querySelector('input[name="amount"]') as HTMLInputElement
@@ -26,6 +27,7 @@ export const CreateTransactionForm = () => {
             toast("Создана новая транзакция", {
                 type: "success",
             });
+
         },
     });
 
