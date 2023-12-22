@@ -12,12 +12,16 @@ type TMenuItem = {
   Icon: OverridableComponent<SvgIconTypeMap> & { muiName: string };
 };
 
-// import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet'; -- envelope
 export const menu: TMenuItem[] = [
   {
     title: "Текущий спринт",
     to: "/sprints/current",
     Icon: Money
+  },
+  {
+    title: "Добавить транзакцию",
+    to: "/transactions/create",
+    Icon: AddCard,
   },
   {
     title: "Все спринты",
@@ -33,10 +37,5 @@ export const menu: TMenuItem[] = [
     title: "Категории",
     to: "/categories",
     Icon: Article,
-  },
-  {
-    title: "Добавить транзакцию",
-    to: "/transactions/create",
-    Icon: AddCard,
   },
 ];
