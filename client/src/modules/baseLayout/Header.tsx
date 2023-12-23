@@ -1,9 +1,10 @@
-import { AppBar, Box, Button, IconButton, Toolbar, Typography } from "@mui/material";
+import NightsStayIcon from '@mui/icons-material/NightsStay';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import { AppBar, Button, IconButton, Toolbar, Typography } from "@mui/material";
+
+import { useRootStore } from "@/root.sotre";
 
 import { useAuthStore } from "../auth";
-import { useRootStore } from "@/root.sotre";
-import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import NightsStayIcon from '@mui/icons-material/NightsStay';
 export const Header = () => {
   const authStore = useAuthStore();
   const rootStore = useRootStore()
