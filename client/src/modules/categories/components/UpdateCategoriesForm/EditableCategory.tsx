@@ -37,15 +37,18 @@ export const EditableCategory: FC<TProps> = ({
     deleteCategoryMutation.mutate(id);
   };
   const enterEditMode = () => setIsEditMode(true);
-  const exitEditMode = () => setIsEditMode(false);
+  const exitEditMode = () => {
+    console.log("blur")
+    setIsEditMode(false)
+  };
 
   const field = isEditMode ? (
     <TextInput
+      onBlurCapture={exitEditMode}
       variant="standard"
       fullWidth
       autoFocus
       name={`${name}.name`}
-      onBlur={exitEditMode}
       error={form.formState.errors.editableCategories?.[idx]?.name?.message}
     />
   ) : (
