@@ -1,5 +1,4 @@
-import { Button, IconButton } from "@mui/material";
-import { Edit } from "@mui/icons-material";
+import { Button } from "@mui/material";
 import { FC } from "react";
 import { AmountInput, DatePicker, Modal } from "@/atoms";
 import { useQueryClient, useMutation } from "@tanstack/react-query";
@@ -41,9 +40,9 @@ export const EditSprintModal: FC<TProps> = ({ sprint, sprintId }) => {
 
   return (
     <>
-      <IconButton onClick={openSprintToEdit}>
-        <Edit />
-      </IconButton>
+      <Button onClick={openSprintToEdit}>
+        Редактировать
+      </Button>
       <Modal
         title="Редактировать спринт"
         onClose={store.clearEditableSprint}
