@@ -7,7 +7,12 @@ import { FormProvider, useForm } from "react-hook-form";
 
 import { AmountInput, DatePicker, Modal, TextInput } from "@/atoms";
 
-import { editTransaction, TEditTransactionDto, TRANSACTIONS_QUERY_KEY, useTransactionsStore } from "../..";
+import {
+  editTransaction,
+  TEditTransactionDto,
+  TRANSACTIONS_QUERY_KEY,
+  useTransactionsStore,
+} from "../..";
 
 export const EditTransactionModal = () => {
   const {

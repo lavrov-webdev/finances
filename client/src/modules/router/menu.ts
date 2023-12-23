@@ -1,8 +1,8 @@
-import AddCard from '@mui/icons-material/AddCard'
-import Article from '@mui/icons-material/Article'
-import AutoStories from '@mui/icons-material/AutoStories'
-import Money from '@mui/icons-material/Money'
-import Note from '@mui/icons-material/Note'
+import AddCard from "@mui/icons-material/AddCard";
+import Article from "@mui/icons-material/Article";
+import AutoStories from "@mui/icons-material/AutoStories";
+import Money from "@mui/icons-material/Money";
+import Note from "@mui/icons-material/Note";
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 
@@ -16,7 +16,7 @@ export const menu: TMenuItem[] = [
   {
     title: "Текущий спринт",
     to: "/sprints/current",
-    Icon: Money
+    Icon: Money,
   },
   {
     title: "Добавить транзакцию",

@@ -7,7 +7,13 @@ import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 import { FormDevTool } from "@/atoms";
-import { CATEGORIES_QUERY_KEY, getAllCategories, TUpdateCategoriesFormFields, updateCategories,UpdateCategoriesFormFields } from "@/modules/categories/index.ts";
+import {
+  CATEGORIES_QUERY_KEY,
+  getAllCategories,
+  TUpdateCategoriesFormFields,
+  updateCategories,
+  UpdateCategoriesFormFields,
+} from "@/modules/categories/index.ts";
 
 import { CreateCategories } from "./CreateCategories.tsx";
 import { EditCategories } from "./EditCategories.tsx";
@@ -35,7 +41,7 @@ export const UpdateCategoriesForm = () => {
   useEffect(() => {
     form.setValue(
       "editableCategories",
-      categoriesQuery.data?.filter((category) => category.isActive) || []
+      categoriesQuery.data?.filter((category) => category.isActive) || [],
     );
   }, [categoriesQuery.data, form]);
   const onSubmit = (data: TUpdateCategoriesFormFields) => {

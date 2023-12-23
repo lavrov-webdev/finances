@@ -1,1 +1,1 @@
-export * from './EnvelopesAccordion'
+export * from "./EnvelopesAccordion";

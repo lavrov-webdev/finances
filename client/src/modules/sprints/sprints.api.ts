@@ -1,15 +1,22 @@
 import { appAxios } from "@/config";
 
-import { TCreateSprintDto, TEditSprintDto, TGetSprintDto, TGetSprintWithEnvelopesAndTransactionsDto, TGetSprintWithEnvelopesDto, TGetSprintWithTotalSpendingsAndPlainDto } from ".";
+import {
+  TCreateSprintDto,
+  TEditSprintDto,
+  TGetSprintDto,
+  TGetSprintWithEnvelopesAndTransactionsDto,
+  TGetSprintWithEnvelopesDto,
+  TGetSprintWithTotalSpendingsAndPlainDto,
+} from ".";
 
 export const SPRINTS_QUERY_KEY = "sprints";
 
 export const createSprint = async (
-  createSprintDto: TCreateSprintDto
+  createSprintDto: TCreateSprintDto,
 ): Promise<TGetSprintWithEnvelopesDto> => {
   const { data } = await appAxios.post<TGetSprintWithEnvelopesDto>(
     "/sprints",
-    createSprintDto
+    createSprintDto,
   );
   return data;
 };
@@ -23,7 +30,7 @@ export const editSprint = async ({
 }) => {
   const { data } = await appAxios.patch<TGetSprintDto>(
     `/sprints/${id}`,
-    editSprintDto
+    editSprintDto,
   );
   return data;
 };
@@ -31,27 +38,26 @@ export const editSprint = async ({
 export const getSprints = async (): Promise<
   TGetSprintWithTotalSpendingsAndPlainDto[]
 > => {
-  const { data } = await appAxios.get<
-    TGetSprintWithTotalSpendingsAndPlainDto[]
-  >("/sprints");
+  const { data } =
+    await appAxios.get<TGetSprintWithTotalSpendingsAndPlainDto[]>("/sprints");
   return data;
 };
 
 export const getSprintById = async (
-  id: number
+  id: number,
 ): Promise<TGetSprintWithEnvelopesAndTransactionsDto> => {
   const { data } =
     await appAxios.get<TGetSprintWithEnvelopesAndTransactionsDto>(
-      `/sprints/${id}`
+      `/sprints/${id}`,
     );
   return data;
 };
 
-export const getCurrentSprint = async (): Promise<Pick<TGetSprintDto, 'id'>> => {
+export const getCurrentSprint = async (): Promise<
+  Pick<TGetSprintDto, "id">
+> => {
   const { data } =
-    await appAxios.get<Pick<TGetSprintDto, 'id'>>(
-      `/sprints/current`
-    );
+    await appAxios.get<Pick<TGetSprintDto, "id">>(`/sprints/current`);
   return data;
 };
 

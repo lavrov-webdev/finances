@@ -1,1 +1,1 @@
-export * from './SprintsList'
+export * from "./SprintsList";

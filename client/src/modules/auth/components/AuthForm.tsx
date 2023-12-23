@@ -31,7 +31,7 @@ export const AuthForm: FC<TProps> = ({ action, buttonText }) => {
             break;
           case HttpStatusCode.NotFound:
             renderErrorToast(
-              "Пользователя с таким email и паролем не существует"
+              "Пользователя с таким email и паролем не существует",
             );
             break;
           default:

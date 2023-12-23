@@ -1,1 +1,1 @@
-export * from './axios.config.ts'
+export * from "./axios.config.ts";

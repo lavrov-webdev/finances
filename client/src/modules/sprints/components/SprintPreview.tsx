@@ -8,9 +8,10 @@ export const SprintPreview = () => {
   const form = useFormContext<TCreateSprintDto>();
   form.watch(["envelopes", "startSum"]);
   const envelopes = form.getValues("envelopes");
-  const totalSpendPlain = envelopes?.reduce((prev, cur) => {
-    return prev + cur.amount;
-  }, 0) || 0;
+  const totalSpendPlain =
+    envelopes?.reduce((prev, cur) => {
+      return prev + cur.amount;
+    }, 0) || 0;
   const totalRemainPlan = form.getValues("startSum") - totalSpendPlain;
 
   return (

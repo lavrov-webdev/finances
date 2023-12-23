@@ -8,7 +8,12 @@ import { toast } from "react-toastify";
 
 import { AmountInput, DatePicker, Modal } from "@/atoms";
 
-import { editSprint, SPRINTS_QUERY_KEY, TEditSprintDto, useSrpintsStore } from "..";
+import {
+  editSprint,
+  SPRINTS_QUERY_KEY,
+  TEditSprintDto,
+  useSrpintsStore,
+} from "..";
 
 type TProps = {
   sprint: TEditSprintDto;
@@ -21,7 +26,7 @@ export const EditSprintModal: FC<TProps> = ({ sprint, sprintId }) => {
     defaultValues: {
       startDate: sprint.startDate,
       endDate: sprint.endDate,
-      startSum: sprint.startSum
+      startSum: sprint.startSum,
     },
   });
 
@@ -30,12 +35,12 @@ export const EditSprintModal: FC<TProps> = ({ sprint, sprintId }) => {
     mutationFn: editSprint,
     onSuccess: async () => {
       await queryClient.invalidateQueries([SPRINTS_QUERY_KEY]);
-      toast("Спринт обновлён", {type: "success"})
+      toast("Спринт обновлён", { type: "success" });
       store.clearEditableSprint();
     },
     onError: () => {
-      toast("Couldn't edit sprint", { type: "error" })
-    }
+      toast("Couldn't edit sprint", { type: "error" });
+    },
   });
 
   const openSprintToEdit = () => {
@@ -48,9 +53,7 @@ export const EditSprintModal: FC<TProps> = ({ sprint, sprintId }) => {
 
   return (
     <>
-      <Button onClick={openSprintToEdit}>
-        Редактировать
-      </Button>
+      <Button onClick={openSprintToEdit}>Редактировать</Button>
       <Modal
         title="Редактировать спринт"
         onClose={store.clearEditableSprint}

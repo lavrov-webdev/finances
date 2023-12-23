@@ -18,10 +18,7 @@ import { useQuery } from "@tanstack/react-query";
 import { FC } from "react";
 
 import { TotalView } from "@/atoms";
-import {
-  CATEGORIES_QUERY_KEY,
-  getAllCategories,
-} from "@/modules/categories";
+import { CATEGORIES_QUERY_KEY, getAllCategories } from "@/modules/categories";
 import { TGetEnvelopeWithTransactionsDto } from "@/modules/envelopes";
 
 import { EnvelopeTransaction } from "./Transaction";
@@ -50,19 +47,31 @@ export const Envelope: FC<TProps> = ({ envelope }) => {
         <Box width="100%">
           <Grid2 container columns={5}>
             <Grid2 xs={1}>
-              <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
                 <Typography variant="subtitle1">
                   <b>
-                    {categoriesQuery.data?.find(
-                      (category) => category.id === envelope.categoryId,
-                    )?.name}
+                    {
+                      categoriesQuery.data?.find(
+                        (category) => category.id === envelope.categoryId,
+                      )?.name
+                    }
                   </b>
                 </Typography>
               </div>
             </Grid2>
             <Grid2 xs={4}>
               <Typography ml={5} variant="subtitle1">
-                <TotalView plan={envelope.amount} fact={totalSpendings} direction="row" />
+                <TotalView
+                  plan={envelope.amount}
+                  fact={totalSpendings}
+                  direction="row"
+                />
               </Typography>
             </Grid2>
           </Grid2>

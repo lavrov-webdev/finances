@@ -1,11 +1,11 @@
-import { EditTransactionModal } from "./EditTransactionModal"
-import { Table } from "./Table"
+import { EditTransactionModal } from "./EditTransactionModal";
+import { Table } from "./Table";
 
 export const TransactionsList = () => {
-   return (
-       <>
-        <Table/>
-        <EditTransactionModal/>
-       </>
-   )
-}
+  return (
+    <>
+      <Table />
+      <EditTransactionModal />
+    </>
+  );
+};

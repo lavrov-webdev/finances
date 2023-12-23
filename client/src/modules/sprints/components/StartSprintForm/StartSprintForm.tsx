@@ -12,7 +12,12 @@ import {
   getAllCategories,
 } from "@/modules/categories/categories.api";
 
-import { createSprint,CreateSprintDto, SPRINTS_QUERY_KEY, TCreateSprintDto } from "../..";
+import {
+  createSprint,
+  CreateSprintDto,
+  SPRINTS_QUERY_KEY,
+  TCreateSprintDto,
+} from "../..";
 import { EmptyCategoriesAlert, SprintPreview } from "..";
 import { Dates, Envelopes, StartSum } from "./fields";
 
@@ -32,15 +37,18 @@ export const StartSprintForm = () => {
 
   const envelopes = useMemo(
     () =>
-      categoriesQuery.data?.reduce((acc, category) => {
-        if (category.isActive) {
-          acc.push({
-            categoryId: category.id,
-            amount: 0,
-          });
-        }
-        return acc;
-      }, [] as TCreateSprintDto["envelopes"]) || [],
+      categoriesQuery.data?.reduce(
+        (acc, category) => {
+          if (category.isActive) {
+            acc.push({
+              categoryId: category.id,
+              amount: 0,
+            });
+          }
+          return acc;
+        },
+        [] as TCreateSprintDto["envelopes"],
+      ) || [],
     [categoriesQuery.data],
   );
   const queryClient = useQueryClient();
@@ -65,38 +73,38 @@ export const StartSprintForm = () => {
 
   return (
     <FormProvider {...form}>
-      {categoriesQuery.data.length === 0
-        ? <EmptyCategoriesAlert />
-        : (
-          <Box
-            maxWidth={900}
-            style={{
-              display: "grid",
-              gap: "20px",
-              gridTemplateColumns: "1fr 1fr",
-            }}
-          >
-            <Box maxWidth={600}>
-              <form onSubmit={form.handleSubmit(submitHandler)}>
-                <Dates />
-                <StartSum />
-                <Envelopes />
-                <Box mt={5}>
-                  <Button
-                    fullWidth
-                    size="large"
-                    variant="contained"
-                    type="submit"
-                  >
-                    Начать спринт
-                  </Button>
-                </Box>
-                <FormDevTool />
-              </form>
-            </Box>
-            <SprintPreview />
+      {categoriesQuery.data.length === 0 ? (
+        <EmptyCategoriesAlert />
+      ) : (
+        <Box
+          maxWidth={900}
+          style={{
+            display: "grid",
+            gap: "20px",
+            gridTemplateColumns: "1fr 1fr",
+          }}
+        >
+          <Box maxWidth={600}>
+            <form onSubmit={form.handleSubmit(submitHandler)}>
+              <Dates />
+              <StartSum />
+              <Envelopes />
+              <Box mt={5}>
+                <Button
+                  fullWidth
+                  size="large"
+                  variant="contained"
+                  type="submit"
+                >
+                  Начать спринт
+                </Button>
+              </Box>
+              <FormDevTool />
+            </form>
           </Box>
-        )}
+          <SprintPreview />
+        </Box>
+      )}
     </FormProvider>
   );
 };

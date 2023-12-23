@@ -1,17 +1,13 @@
 import { appAxios } from "@/config";
 
-import {
-  TCreateCategoryDto,
-  TEditCategoryDto,
-  TGetCategoryDto,
-} from ".";
+import { TCreateCategoryDto, TEditCategoryDto, TGetCategoryDto } from ".";
 
 export const CATEGORIES_QUERY_KEY = "categories";
 
 const createCategories = async (createCategoriesDto: TCreateCategoryDto[]) => {
   const { data } = await appAxios.post<TGetCategoryDto[]>(
     "/categories",
-    createCategoriesDto
+    createCategoriesDto,
   );
   return data;
 };
@@ -19,7 +15,7 @@ const createCategories = async (createCategoriesDto: TCreateCategoryDto[]) => {
 const editCategories = async (editCategoriesDto: TEditCategoryDto[]) => {
   const { data } = await appAxios.patch<TGetCategoryDto[]>(
     "/categories",
-    editCategoriesDto
+    editCategoriesDto,
   );
   return data;
 };

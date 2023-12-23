@@ -1,5 +1,5 @@
-import { StartSprintForm } from "../components"
+import { StartSprintForm } from "../components";
 
 export const StartSprintPage = () => {
-   return <StartSprintForm/>
-}
+  return <StartSprintForm />;
+};

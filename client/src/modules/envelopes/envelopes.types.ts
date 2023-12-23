@@ -37,7 +37,7 @@ export const GetEnvelopesWithCategoryNameAndSprintDates = GetEnvelopeDto.extend(
       startDate: z.date({ required_error: "Введите дату начала" }),
       endDate: z.date({ required_error: "Введите дату окончания" }),
     }),
-  }
+  },
 );
 export type TGetEnvelopesWithCategoryNameAndSprintDates = z.infer<
   typeof GetEnvelopesWithCategoryNameAndSprintDates

@@ -5,11 +5,7 @@ import { AmountInput } from "@/atoms";
 export const Amount = () => {
   return (
     <Grid2 xs={1}>
-      <AmountInput
-        fullWidth
-        name="amount"
-        label="Сумма"
-      />
+      <AmountInput fullWidth name="amount" label="Сумма" />
     </Grid2>
   );
 };

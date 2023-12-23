@@ -17,14 +17,14 @@ type TEnvelopeByDate = {
 type TTransactionsStore = {
   envelopesByDates: TEnvelopeByDate[];
   getEnvelopesByDate: (
-    date: Date
+    date: Date,
   ) => Promise<TGetEnvelopesWithCategoryNameAndSprintDates[]>;
   isEditModalOpen: boolean;
   editableTransactionData?: TEditTransactionDto;
   editableTransactionId?: number;
   openEditModal: (
     transactionData: TEditTransactionDto,
-    editableTransactionId: number
+    editableTransactionId: number,
   ) => void;
   closeEditModal: () => void;
 };
@@ -35,7 +35,7 @@ export const useTransactionsStore = create<TTransactionsStore>()(
     lastDate: dayjs().toDate(),
     getEnvelopesByDate: async (date: Date) => {
       const envelopesFromCache = get().envelopesByDates.find((cacheItem) =>
-        dayjs(date).isBetween(cacheItem.startDate, cacheItem.endDate)
+        dayjs(date).isBetween(cacheItem.startDate, cacheItem.endDate),
       );
       if (envelopesFromCache) return envelopesFromCache.envelopes;
       const fetchedEnvelopes = await getEnvelopesByDate(date);
@@ -48,7 +48,7 @@ export const useTransactionsStore = create<TTransactionsStore>()(
       set(
         produce((state: TTransactionsStore) => {
           state.envelopesByDates.push(newCacheItem);
-        })
+        }),
       );
       return newCacheItem.envelopes;
     },
@@ -67,5 +67,5 @@ export const useTransactionsStore = create<TTransactionsStore>()(
         editableTransactionData: undefined,
         editableTransactionId: undefined,
       }),
-  })
+  }),
 );

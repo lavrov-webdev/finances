@@ -7,7 +7,13 @@ import {
 import { AuthPage } from "../auth/pages/index.ts";
 import { BaseLayout } from "../baseLayout/index.ts";
 import { CategoriesPage } from "../categories/pages/index.ts";
-import { AllSprintsPage, CurrentSprintPage, SprintPage, SprintsPage, StartSprintPage } from "../sprints/pages/index.ts";
+import {
+  AllSprintsPage,
+  CurrentSprintPage,
+  SprintPage,
+  SprintsPage,
+  StartSprintPage,
+} from "../sprints/pages/index.ts";
 import {
   AllTransactionsPage,
   CreateTransactionPage,
@@ -38,7 +44,7 @@ const routes = createBrowserRouter([
           },
           {
             element: <SprintPage />,
-            path: ":id"
+            path: ":id",
           },
           {
             element: <StartSprintPage />,
@@ -46,8 +52,8 @@ const routes = createBrowserRouter([
           },
           {
             element: <CurrentSprintPage />,
-            path: "current"
-          }
+            path: "current",
+          },
         ],
       },
       {

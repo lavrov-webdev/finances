@@ -12,8 +12,8 @@ import { separateThousand } from "@/helpres";
 
 type Props = {
   name: string;
-  error?: string
-} & Omit<TextFieldProps, 'error'>;
+  error?: string;
+} & Omit<TextFieldProps, "error">;
 
 export const AmountInput: FC<Props> = ({ name, error, ...rest }) => {
   const form = useFormContext();
@@ -22,7 +22,7 @@ export const AmountInput: FC<Props> = ({ name, error, ...rest }) => {
       control={form.control}
       name={name}
       render={({ field, fieldState }) => {
-        const fieldError = error || fieldState.error?.message
+        const fieldError = error || fieldState.error?.message;
         return (
           <FormControl fullWidth={rest.fullWidth}>
             <TextField
@@ -35,13 +35,11 @@ export const AmountInput: FC<Props> = ({ name, error, ...rest }) => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="start">₽</InputAdornment>
-                )
+                ),
               }}
             />
             {fieldError && (
-              <FormHelperText error>
-                {fieldError?.toString()}
-              </FormHelperText>
+              <FormHelperText error>{fieldError?.toString()}</FormHelperText>
             )}
           </FormControl>
         );
@@ -49,4 +47,3 @@ export const AmountInput: FC<Props> = ({ name, error, ...rest }) => {
     />
   );
 };
-

@@ -3,10 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useFieldArray, useFormContext } from "react-hook-form";
 
 import { AmountInput, FormSubtitle } from "@/atoms";
-import {
-  CATEGORIES_QUERY_KEY,
-  getAllCategories,
-} from "@/modules/categories";
+import { CATEGORIES_QUERY_KEY, getAllCategories } from "@/modules/categories";
 import { TCreateSprintDto } from "@/modules/sprints";
 
 export const Envelopes = () => {
@@ -31,7 +28,7 @@ export const Envelopes = () => {
               name={`envelopes.${id}.amount`}
               label={
                 categoriesQuery.data?.find(
-                  (categoory) => categoory.id === envelope.categoryId
+                  (categoory) => categoory.id === envelope.categoryId,
                 )?.name
               }
               error={form.formState.errors.envelopes?.[id]?.amount?.message}

@@ -7,10 +7,7 @@ import { useFormContext } from "react-hook-form";
 import { FieldWithRightButton, TextInput } from "@/atoms";
 import { TUpdateCategoriesFormFields } from "@/modules/categories/index.ts";
 
-import {
-  CATEGORIES_QUERY_KEY,
-  deleteCategory,
-} from "../../categories.api.ts";
+import { CATEGORIES_QUERY_KEY, deleteCategory } from "../../categories.api.ts";
 
 type TProps = {
   id: number;

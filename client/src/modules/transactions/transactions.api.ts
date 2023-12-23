@@ -15,16 +15,17 @@ export const createTransaction = async (transaction: TCreateTransactionDto) => {
 };
 
 export const getTransactions = async () => {
-  const { data } = await appAxios.get<TGetTransactionsWithCategoryName[]>(
-    "/transactions"
-  );
+  const { data } =
+    await appAxios.get<TGetTransactionsWithCategoryName[]>("/transactions");
   return data;
 };
 
 export const getSprintTransactions = async (sprintId: number) => {
-  const {data} = await appAxios.get<TGetTransactionsWithCategoryName[]>(`/transactions/${sprintId}`)
-  return data
-}
+  const { data } = await appAxios.get<TGetTransactionsWithCategoryName[]>(
+    `/transactions/${sprintId}`,
+  );
+  return data;
+};
 
 export const editTransaction = async ({
   editTransaction,
@@ -35,14 +36,14 @@ export const editTransaction = async ({
 }) => {
   const { data } = await appAxios.patch<TGetTransactionDto>(
     "/transactions/" + id,
-    editTransaction
+    editTransaction,
   );
   return data;
 };
 
 export const deleteTransaction = async (id: number) => {
   const { data } = await appAxios.delete<TGetTransactionDto>(
-    "/transactions/" + id
+    "/transactions/" + id,
   );
   return data;
 };

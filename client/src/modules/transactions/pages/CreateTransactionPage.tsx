@@ -4,7 +4,6 @@ import { CreateTransactionForm } from "../components/createTransactionForm";
 import { TransactionsList } from "../components/transactionsTable";
 
 export const CreateTransactionPage = () => {
-
   return (
     <Box maxWidth={900}>
       <CreateTransactionForm />

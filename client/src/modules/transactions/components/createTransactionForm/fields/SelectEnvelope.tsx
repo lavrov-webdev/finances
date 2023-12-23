@@ -16,7 +16,7 @@ import { TCreateTransactionDto } from "../../../transactions.types";
 export const SelectEnvelope = () => {
   const form = useFormContext<TCreateTransactionDto>();
   const getEnvelopesByDate = useTransactionsStore(
-    (store) => store.getEnvelopesByDate
+    (store) => store.getEnvelopesByDate,
   );
   const [envelopes, setEnvelopes] = useState<
     TGetEnvelopesWithCategoryNameAndSprintDates[]
