@@ -37,10 +37,7 @@ export const EditableCategory: FC<TProps> = ({
     deleteCategoryMutation.mutate(id);
   };
   const enterEditMode = () => setIsEditMode(true);
-  const exitEditMode = () => {
-    console.log("blur")
-    setIsEditMode(false)
-  };
+  const exitEditMode = () => setIsEditMode(false);
 
   const field = isEditMode ? (
     <TextInput
