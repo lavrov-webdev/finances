@@ -1,4 +1,3 @@
-import { TGetEnvelopeWithTransactionsDto } from "@/modules/envelopes";
 import { ExpandMore } from "@mui/icons-material";
 import {
   Accordion,
@@ -14,15 +13,18 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
+import Grid2 from "@mui/material/Unstable_Grid2";
+import { useQuery } from "@tanstack/react-query";
 import { FC } from "react";
-import { EnvelopeTransaction } from "./Transaction";
+
 import { TotalView } from "@/atoms";
 import {
   CATEGORIES_QUERY_KEY,
   getAllCategories,
 } from "@/modules/categories";
-import { useQuery } from "@tanstack/react-query";
-import Grid2 from "@mui/material/Unstable_Grid2";
+import { TGetEnvelopeWithTransactionsDto } from "@/modules/envelopes";
+
+import { EnvelopeTransaction } from "./Transaction";
 
 type TProps = {
   envelope: TGetEnvelopeWithTransactionsDto;

@@ -1,4 +1,5 @@
 import { DataGrid } from "@mui/x-data-grid";
+
 import { useTransactionsTableData } from "./hooks";
 
 export const Table = () => {

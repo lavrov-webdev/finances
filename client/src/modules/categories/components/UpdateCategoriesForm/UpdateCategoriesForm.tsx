@@ -1,14 +1,16 @@
-import { FormProvider, useForm } from "react-hook-form";
-import { EditCategories } from "./EditCategories.tsx";
-import { CreateCategories } from "./CreateCategories.tsx";
-import LoadingButton from "@mui/lab/LoadingButton";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
+import LoadingButton from "@mui/lab/LoadingButton";
 import { Box } from "@mui/material";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+
 import { FormDevTool } from "@/atoms";
-import { getAllCategories, CATEGORIES_QUERY_KEY, updateCategories, TUpdateCategoriesFormFields, UpdateCategoriesFormFields } from "@/modules/categories/index.ts";
+import { CATEGORIES_QUERY_KEY, getAllCategories, TUpdateCategoriesFormFields, updateCategories,UpdateCategoriesFormFields } from "@/modules/categories/index.ts";
+
+import { CreateCategories } from "./CreateCategories.tsx";
+import { EditCategories } from "./EditCategories.tsx";
 
 export const UpdateCategoriesForm = () => {
   const queryClient = useQueryClient();

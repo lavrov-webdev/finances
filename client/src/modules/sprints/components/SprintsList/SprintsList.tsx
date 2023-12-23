@@ -1,10 +1,12 @@
-import { AppLink } from "@/atoms";
-import { groupBy } from "@/helpres";
-import { Box, Typography, Alert } from "@mui/material";
+import { Alert, Box, Typography } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { useQuery } from "@tanstack/react-query";
 import dayjs from "dayjs";
-import { getSprints, SPRINTS_QUERY_KEY } from "../../sprints.api";
+
+import { AppLink } from "@/atoms";
+import { groupBy } from "@/helpres";
+
+import { getSprints,SPRINTS_QUERY_KEY } from "../../sprints.api";
 import { SprintItem } from "./SprintItem";
 
 export const SprintsList = () => {

@@ -1,9 +1,10 @@
+import { appAxios } from "@/config";
+
 import {
   TCreateCategoryDto,
   TEditCategoryDto,
   TGetCategoryDto,
 } from ".";
-import { appAxios } from "@/config";
 
 export const CATEGORIES_QUERY_KEY = "categories";
 

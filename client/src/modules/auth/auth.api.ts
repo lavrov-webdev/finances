@@ -1,5 +1,6 @@
 import { appAxios } from "@/config";
-import { TUserDto, TAuthDto } from ".";
+
+import { TAuthDto, TUserDto } from ".";
 
 export const getUserInformation = async () => {
   const { data } = await appAxios.get<TUserDto>("/users/me");

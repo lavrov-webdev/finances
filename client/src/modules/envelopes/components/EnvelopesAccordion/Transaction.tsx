@@ -1,8 +1,9 @@
-import { TGetTransactionDto } from "@/modules/transactions";
-import { separateThousand } from "@/helpres";
-import { TableRow, TableCell } from "@mui/material";
+import { TableCell, TableRow } from "@mui/material";
 import dayjs from "dayjs";
 import { FC } from "react";
+
+import { separateThousand } from "@/helpres";
+import { TGetTransactionDto } from "@/modules/transactions";
 
 type TProps = {
   transaction: TGetTransactionDto;

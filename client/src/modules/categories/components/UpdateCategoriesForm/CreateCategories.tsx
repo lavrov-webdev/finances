@@ -1,7 +1,8 @@
-import { Box, Button, IconButton, List, ListItem } from "@mui/material";
-import { FieldWithRightButton, FormSubtitle, TextInput } from "@/atoms";
-import { useFieldArray, useFormContext } from "react-hook-form";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Box, Button, IconButton, List, ListItem } from "@mui/material";
+import { useFieldArray, useFormContext } from "react-hook-form";
+
+import { FieldWithRightButton, FormSubtitle, TextInput } from "@/atoms";
 import { TUpdateCategoriesFormFields } from "@/modules/categories";
 
 export const CreateCategories = () => {

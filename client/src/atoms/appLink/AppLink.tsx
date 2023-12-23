@@ -1,7 +1,6 @@
-import { Link as RouterLink } from "react-router-dom";
-
 import { Link, LinkProps } from "@mui/material";
 import { FC } from "react";
+import { Link as RouterLink } from "react-router-dom";
 
 type TProps = {
   to: string;

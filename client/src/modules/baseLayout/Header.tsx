@@ -1,4 +1,5 @@
 import { AppBar, Button, Toolbar, Typography } from "@mui/material";
+
 import { useAuthStore } from "../auth";
 
 export const Header = () => {

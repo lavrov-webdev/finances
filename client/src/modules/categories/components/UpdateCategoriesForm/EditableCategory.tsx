@@ -1,14 +1,16 @@
-import { FC, useState } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, IconButton, Typography } from "@mui/material";
-import { FieldWithRightButton, TextInput } from "@/atoms";
-import { useFormContext } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { FC, useState } from "react";
+import { useFormContext } from "react-hook-form";
+
+import { FieldWithRightButton, TextInput } from "@/atoms";
+import { TUpdateCategoriesFormFields } from "@/modules/categories/index.ts";
+
 import {
   CATEGORIES_QUERY_KEY,
   deleteCategory,
 } from "../../categories.api.ts";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { TUpdateCategoriesFormFields } from "@/modules/categories/index.ts";
 
 type TProps = {
   id: number;

@@ -1,6 +1,7 @@
-import { TransactionsList } from "../components/transactionsTable";
-import { CreateTransactionForm } from "../components/createTransactionForm";
 import { Box } from "@mui/material";
+
+import { CreateTransactionForm } from "../components/createTransactionForm";
+import { TransactionsList } from "../components/transactionsTable";
 
 export const CreateTransactionPage = () => {
 

@@ -1,7 +1,8 @@
-import { Providers } from "./Providers.tsx";
-import { RootRouter } from "./modules/router/index.ts";
-import { useAuthStore } from "./modules/auth/index.ts";
 import { useEffect, useState } from "react";
+
+import { useAuthStore } from "./modules/auth/index.ts";
+import { RootRouter } from "./modules/router/index.ts";
+import { Providers } from "./Providers.tsx";
 
 function App() {
   const authInit = useAuthStore((store) => store.init);

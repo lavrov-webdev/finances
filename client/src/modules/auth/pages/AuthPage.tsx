@@ -1,8 +1,10 @@
-import { AuthForm } from "../components";
 import { Box, Paper, Stack, Typography } from "@mui/material";
-import { useParams, useSearchParams, Navigate } from "react-router-dom";
+import { Navigate, useParams, useSearchParams } from "react-router-dom";
+
 import { AppLink } from "@/atoms";
+
 import { useAuthStore } from "..";
+import { AuthForm } from "../components";
 
 export const AuthPage = () => {
   const authStore = useAuthStore();

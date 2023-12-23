@@ -1,5 +1,6 @@
 import { create } from "zustand";
-import { TAuthDto, signIn, signUp, getUserInformation, logout } from ".";
+
+import { getUserInformation, logout, signIn, signUp,TAuthDto } from ".";
 
 type TAuthState = {
   signIn: (credentials: TAuthDto) => Promise<void>;

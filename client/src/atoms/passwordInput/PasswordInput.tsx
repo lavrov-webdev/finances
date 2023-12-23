@@ -1,4 +1,4 @@
-import {FC, useReducer} from "react";
+import {Visibility, VisibilityOff} from "@mui/icons-material";
 import {
     FormControl,
     FormHelperText,
@@ -8,8 +8,8 @@ import {
     InputProps,
     OutlinedInput
 } from "@mui/material";
+import {FC, useReducer} from "react";
 import {useFormContext} from "react-hook-form";
-import {Visibility, VisibilityOff} from "@mui/icons-material";
 
 type TProps = {
     name: string,

@@ -1,5 +1,6 @@
-import { AppLink } from "@/atoms";
 import { Alert, Box } from "@mui/material";
+
+import { AppLink } from "@/atoms";
 
 export const EmptyCategoriesAlert = () => {
   return (

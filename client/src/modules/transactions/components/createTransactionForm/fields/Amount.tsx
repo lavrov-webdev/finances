@@ -1,5 +1,6 @@
-import { AmountInput } from "@/atoms";
 import Grid2 from "@mui/material/Unstable_Grid2";
+
+import { AmountInput } from "@/atoms";
 
 export const Amount = () => {
   return (

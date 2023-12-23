@@ -1,9 +1,9 @@
+import { DatePickerProps } from "@mui/lab";
+import { FormControl, FormHelperText, FormLabel } from "@mui/material";
+import { DatePicker as MuiDatePicker } from "@mui/x-date-pickers";
 import { Dayjs } from "dayjs";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { DatePicker as MuiDatePicker } from "@mui/x-date-pickers";
-import { FormControl, FormHelperText, FormLabel } from "@mui/material";
-import { DatePickerProps } from "@mui/lab";
 
 type TProps = {
   name: string;

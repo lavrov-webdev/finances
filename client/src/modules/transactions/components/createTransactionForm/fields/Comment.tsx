@@ -1,5 +1,6 @@
-import { TextInput } from "@/atoms";
 import Grid2 from "@mui/material/Unstable_Grid2";
+
+import { TextInput } from "@/atoms";
 
 export const Comment = () => {
   return (

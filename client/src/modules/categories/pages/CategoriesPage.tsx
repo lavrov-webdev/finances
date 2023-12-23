@@ -1,5 +1,6 @@
-import { UpdateCategoriesForm } from "../components";
 import { Box } from "@mui/material";
+
+import { UpdateCategoriesForm } from "../components";
 
 export const CategoriesPage = () => {
   return (

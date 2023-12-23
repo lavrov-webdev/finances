@@ -1,5 +1,6 @@
-import { AmountInput, FormSubtitle } from "@/atoms";
 import { Box } from "@mui/material";
+
+import { AmountInput, FormSubtitle } from "@/atoms";
 
 export const StartSum = () => {
   return (

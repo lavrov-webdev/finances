@@ -1,12 +1,15 @@
-import { useQuery } from "@tanstack/react-query"
 import { Box, Typography } from "@mui/material";
-import { separateThousand } from "@/helpres";
-import { SumInfo, Envelope, EditSprintModal } from "../components";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import { useQuery } from "@tanstack/react-query"
 import { FC } from "react";
 import { useParams } from "react-router-dom";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+
+import { separateThousand } from "@/helpres";
+import { EnvelopesAccordion } from "@/modules/envelopes";
+
+import { getSprintById,SPRINTS_QUERY_KEY } from "..";
+import { EditSprintModal, SumInfo } from "../components";
 import { treatSprintInfo } from "../helpers";
-import { getSprintById, SPRINTS_QUERY_KEY } from "..";
 
 export const SprintPage: FC = () => {
     const params = useParams()
@@ -44,16 +47,7 @@ export const SprintPage: FC = () => {
                     </Box>
                 </Grid2>
                 <Grid2>
-                    <Box mb={2} fontWeight={500}>
-                        <div style={{ display: "flex", justifyContent: "space-between" }}>
-                            <span>Категория</span>
-                            <span>План</span>
-                            <span>Расходы</span>
-                            <span>Остаток</span>
-                            <span />
-                        </div>
-                    </Box>
-                    {getSprintInfo.data.envelopes.map(envelope => <Envelope key={envelope.id} envelope={envelope} />)}
+                    <EnvelopesAccordion envelopes={getSprintInfo.data.envelopes}/>
                 </Grid2>
             </Grid2>
         </>

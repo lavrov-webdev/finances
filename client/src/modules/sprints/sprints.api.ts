@@ -1,5 +1,6 @@
 import { appAxios } from "@/config";
-import { TCreateSprintDto, TGetSprintWithEnvelopesDto, TEditSprintDto, TGetSprintDto, TGetSprintWithTotalSpendingsAndPlainDto, TGetSprintWithEnvelopesAndTransactionsDto } from ".";
+
+import { TCreateSprintDto, TEditSprintDto, TGetSprintDto, TGetSprintWithEnvelopesAndTransactionsDto, TGetSprintWithEnvelopesDto, TGetSprintWithTotalSpendingsAndPlainDto } from ".";
 
 export const SPRINTS_QUERY_KEY = "sprints";
 

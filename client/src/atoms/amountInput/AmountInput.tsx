@@ -1,4 +1,3 @@
-import { separateThousand } from "@/helpres";
 import {
   FormControl,
   FormHelperText,
@@ -8,6 +7,8 @@ import {
 } from "@mui/material";
 import { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
+
+import { separateThousand } from "@/helpres";
 
 type Props = {
   name: string;

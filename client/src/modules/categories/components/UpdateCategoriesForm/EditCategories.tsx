@@ -1,9 +1,11 @@
-import { useFieldArray, useFormContext } from "react-hook-form";
-import { EditableCategory } from "./EditableCategory.tsx";
-import { FC } from "react";
 import { List, ListItem } from "@mui/material";
+import { FC } from "react";
+import { useFieldArray, useFormContext } from "react-hook-form";
+
 import { FormSubtitle } from "@/atoms";
 import { TUpdateCategoriesFormFields } from "@/modules/categories/index.ts";
+
+import { EditableCategory } from "./EditableCategory.tsx";
 
 type TProps = {
   isLoading: boolean;

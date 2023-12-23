@@ -1,7 +1,8 @@
-import { TCreateSprintDto } from "@/modules/sprints/sprints.types";
-import { separateThousand } from "@/helpres";
 import { Card } from "@mui/material";
 import { useFormContext } from "react-hook-form";
+
+import { separateThousand } from "@/helpres";
+import { TCreateSprintDto } from "@/modules/sprints/sprints.types";
 
 export const SprintPreview = () => {
   const form = useFormContext<TCreateSprintDto>();

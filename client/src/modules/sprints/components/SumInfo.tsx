@@ -1,6 +1,7 @@
-import { separateThousand } from "@/helpres"
 import { Box, Typography } from "@mui/material"
 import { FC } from "react"
+
+import { separateThousand } from "@/helpres"
 
 type TProps = {
     sum: number,
