@@ -6,6 +6,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import dayjs from "dayjs";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { TEditSprintDto, useSrpintsStore, editSprint, SPRINTS_QUERY_KEY } from "..";
+import { toast } from "react-toastify";
 
 type TProps = {
   sprint: TEditSprintDto;
@@ -14,10 +15,11 @@ type TProps = {
 
 export const EditSprintModal: FC<TProps> = ({ sprint, sprintId }) => {
   const store = useSrpintsStore();
-
   const form = useForm<TEditSprintDto>({
     defaultValues: {
-      ...sprint,
+      startDate: sprint.startDate,
+      endDate: sprint.endDate,
+      startSum: sprint.startSum
     },
   });
 
@@ -26,8 +28,12 @@ export const EditSprintModal: FC<TProps> = ({ sprint, sprintId }) => {
     mutationFn: editSprint,
     onSuccess: async () => {
       await queryClient.invalidateQueries([SPRINTS_QUERY_KEY]);
+      toast("Спринт обновлён", {type: "success"})
       store.clearEditableSprint();
     },
+    onError: () => {
+      toast("Couldn't edit sprint", { type: "error" })
+    }
   });
 
   const openSprintToEdit = () => {
