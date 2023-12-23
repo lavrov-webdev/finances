@@ -16,7 +16,7 @@ const queryClient = new QueryClient({
   },
 });
 export const Providers: FC<PropsWithChildren> = ({ children }) => {
-  const theme = useRootStore(store => store.theme)
+  const theme = useRootStore((store) => store.theme);
   const themeOptions = createTheme({
     palette: {
       primary: {
@@ -28,7 +28,7 @@ export const Providers: FC<PropsWithChildren> = ({ children }) => {
       warning: {
         main: "#ff9800",
       },
-      mode: theme
+      mode: theme,
     },
   });
   return (

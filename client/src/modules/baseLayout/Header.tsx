@@ -1,5 +1,5 @@
-import NightsStayIcon from '@mui/icons-material/NightsStay';
-import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import NightsStayIcon from "@mui/icons-material/NightsStay";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import { AppBar, Button, IconButton, Toolbar, Typography } from "@mui/material";
 
 import { useRootStore } from "@/root.sotre";
@@ -7,10 +7,10 @@ import { useRootStore } from "@/root.sotre";
 import { useAuthStore } from "../auth";
 export const Header = () => {
   const authStore = useAuthStore();
-  const rootStore = useRootStore()
+  const rootStore = useRootStore();
   const toggleTheme = () => {
-    rootStore.setTheme(rootStore.theme === "dark" ? "light" : "dark")
-  }
+    rootStore.setTheme(rootStore.theme === "dark" ? "light" : "dark");
+  };
   //TODO добавить мобильную версию
   return (
     <AppBar
@@ -19,11 +19,20 @@ export const Header = () => {
     >
       <Toolbar>
         <div style={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
-          <Typography sx={{ marginRight: 4 }} variant="h6" noWrap component="span">
+          <Typography
+            sx={{ marginRight: 4 }}
+            variant="h6"
+            noWrap
+            component="span"
+          >
             Мои финансы
           </Typography>
           <IconButton onClick={toggleTheme}>
-            {rootStore.theme === 'dark' ? <WbSunnyIcon /> : <NightsStayIcon color="warning" />}
+            {rootStore.theme === "dark" ? (
+              <WbSunnyIcon />
+            ) : (
+              <NightsStayIcon color="warning" />
+            )}
           </IconButton>
         </div>
         {authStore.isAuthorized && (
