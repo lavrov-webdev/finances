@@ -2,12 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { getCurrentSprint } from "..";
+import { SPRINTS_QUERY_KEY, getCurrentSprint } from "..";
 
 export const CurrentSprintPage = () => {
   const currentSprint = useQuery({
     queryFn: getCurrentSprint,
-    queryKey: [],
+    queryKey: [SPRINTS_QUERY_KEY],
   });
   const navigate = useNavigate();
 
