@@ -6,7 +6,7 @@ import { getCurrentSprint } from "..";
 
 export const CurrentSprintPage = () => {
   const currentSprint = useQuery({
-    queryFn: getCurrentSprint
+    queryFn: getCurrentSprint,
   });
   const navigate = useNavigate();
 

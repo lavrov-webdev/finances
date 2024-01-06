@@ -27,13 +27,11 @@ export const CreateTransactionForm = () => {
   const createTransactionMutate = useMutation({
     mutationFn: createTransaction,
     onSuccess: async (data: TGetTransactionDto) => {
-      await queryClient.invalidateQueries([
-        TRANSACTIONS_QUERY_KEY
-      ]);
+      await queryClient.invalidateQueries([TRANSACTIONS_QUERY_KEY]);
       await queryClient.invalidateQueries([
         SPRINTS_QUERY_KEY,
-        data.sprintId.toString()
-      ])
+        data.sprintId.toString(),
+      ]);
       form.setValue("amount", 0);
       form.setValue("comment", "");
       const amountInput = document.querySelector(
